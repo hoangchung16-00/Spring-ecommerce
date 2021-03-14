@@ -1,22 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<!-- catg header banner section -->
-<section id="aa-catg-head-banner">
-    <img src="/img/fashion/fashion-header-bg-8.jpg" alt="fashion img">
-    <div class="aa-catg-head-banner-area">
-        <div class="container">
-            <div class="aa-catg-head-banner-content">
-                <h2>Fashion</h2>
-                <ol class="breadcrumb">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active">${currentCategory.name}</li>
-                </ol>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- / catg header banner section -->
-
 <!-- product category -->
 <section id="aa-product-category">
     <div class="container">
@@ -54,11 +37,11 @@
                             <!-- start single product item -->
                                 <li>
                                 <figure>
-                                    <a class="aa-product-img" href="#"><img src="/img/women/girl-1.png" alt="polo shirt img"></a>
+                                    <a class="aa-product-img" href="/productdetail/${product.id}"><img src="/img/women/girl-1.png" alt="polo shirt img"></a>
                                     <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
                                     <figcaption>
                                         <h4 class="aa-product-title"><a href="#">${product.name}</a></h4>
-                                        <span class="aa-product-price">${product.price}</span><span class="aa-product-price"><del>$65.50</del></span>
+                                        <span class="aa-product-price">Price</span><span class="aa-product-price"><del>$65.50</del></span>
                                         <p class="aa-product-descrip">${product.description}</p>
                                     </figcaption>
                                 </figure>
@@ -300,21 +283,4 @@
 <!-- / product category -->
 
 
-<!-- Subscribe section -->
-<section id="aa-subscribe">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="aa-subscribe-area">
-                    <h3>Subscribe our newsletter </h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, velit!</p>
-                    <form action="" class="aa-subscribe-form">
-                        <input type="email" name="" id="" placeholder="Enter your Email">
-                        <input type="submit" value="Subscribe">
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- / Subscribe section -->
+

@@ -16,4 +16,7 @@
     <definition name="products" extends="client.definition">
         <put-attribute name="body" value="/WEB-INF/jsp/client/products.jsp"/>
     </definition>
+    <definition name="productdetail" extends="client.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/client/productdetail.jsp"/>
+    </definition>
 </tiles-definitions>

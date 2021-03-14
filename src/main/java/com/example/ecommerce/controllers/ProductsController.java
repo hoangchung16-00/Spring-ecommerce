@@ -22,11 +22,11 @@ public class ProductsController extends BaseController {
     @Autowired
     private ProductsService productsService;
     @GetMapping("/products/{categorySlug}/{subCategorySlug}")
-    public String getProducts(@RequestParam(value = "page",required = false,defaultValue = "0") int page,@PathVariable("categorySlug") String categorySlug, @PathVariable("subCategorySlug") String subCategorySlug, final Model model){
-        Pageable pageable = PageRequest.of(page,PAGE_SIZE);
+    public String getProducts(@RequestParam(value = "page",required = false,defaultValue = "1") int page,@PathVariable("categorySlug") String categorySlug, @PathVariable("subCategorySlug") String subCategorySlug, final Model model){
+        Pageable pageable = PageRequest.of(page-1,PAGE_SIZE);
         ArrayList<Products> products;
 
-        if(subCategorySlug=="all"){
+        if(subCategorySlug.equals("all")){
             products = (ArrayList<Products>) productsService.getProductsByCategorySlug(categorySlug,pageable);
             model.addAttribute("currentSubcategorySlug",subCategorySlug);
         } else {
