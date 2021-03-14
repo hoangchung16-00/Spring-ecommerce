@@ -1,7 +1,7 @@
 package com.example.ecommerce.entitys;
 
 import javax.persistence.*;
-
+import java.util.List;
 @Entity
 @Table(name = "products")
 public class Products {
@@ -14,15 +14,26 @@ public class Products {
     @ManyToOne
     @JoinColumn(name = "subcategory_id")
     private Subcategories subcategory;
+    @OneToMany(mappedBy = "product")
+    private List<ProductDetails> productDetails;
 
 
-    public Products(String name, String description, Subcategories subcategory) {
+    public Products(String name, String description, Subcategories subcategory, List<ProductDetails> productDetails) {
         this.name = name;
         this.description = description;
         this.subcategory = subcategory;
+        this.productDetails = productDetails;
     }
 
     public Products() {
+    }
+
+    public List<ProductDetails> getProductDetails() {
+        return productDetails;
+    }
+
+    public void setProductDetails(List<ProductDetails> productDetails) {
+        this.productDetails = productDetails;
     }
 
     public Long getId() {
