@@ -16,7 +16,7 @@ public class Users {
 
     @OneToOne(mappedBy ="user",fetch = FetchType.EAGER)
     private Carts cart;
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
     private List<Reviews> reviews;
 
     public Users(String username, String password, String name, boolean is_admin, String email, Carts cart, List<Reviews> reviews) {

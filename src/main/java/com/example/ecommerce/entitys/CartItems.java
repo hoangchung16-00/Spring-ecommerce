@@ -14,25 +14,25 @@ public class CartItems {
     @JoinColumn(name = "cart_id")
     private Carts cart;
     @OneToOne
-    @JoinColumn(name = "product_variant_id")
-    private ProductVariants productVariant;
-
-    public CartItems(int quantity, Double total, Carts cart, ProductVariants productVariant) {
-        this.quantity = quantity;
-        this.total = total;
-        this.cart = cart;
-        this.productVariant = productVariant;
-    }
+    @JoinColumn(name = "sku_id")
+    private SKUs sku;
 
     public CartItems() {
     }
 
-    public ProductVariants getProductVariant() {
-        return productVariant;
+    public CartItems(int quantity, Double total, Carts cart, SKUs sku) {
+        this.quantity = quantity;
+        this.total = total;
+        this.cart = cart;
+        this.sku = sku;
     }
 
-    public void setProductVariant(ProductVariants productVariant) {
-        this.productVariant = productVariant;
+    public SKUs getSku() {
+        return sku;
+    }
+
+    public void setSku(SKUs sku) {
+        this.sku = sku;
     }
 
     public Long getId() {

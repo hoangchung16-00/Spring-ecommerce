@@ -15,7 +15,7 @@ public class Carts {
     @OneToOne
     @JoinColumn(name = "user_id")
     private Users user;
-    @OneToMany(mappedBy = "cart")
+    @OneToMany(mappedBy = "cart",fetch = FetchType.EAGER)
     private List<CartItems> cartItems;
 
     public Carts(int quantity, Double total, Users user, List<CartItems> cartItems) {

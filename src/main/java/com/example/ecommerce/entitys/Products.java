@@ -14,18 +14,28 @@ public class Products {
     @ManyToOne
     @JoinColumn(name = "subcategory_id")
     private Subcategories subcategory;
+    @OneToMany(mappedBy = "product",fetch = FetchType.LAZY)
+    private List<ProductAttributes> productAttributes;
+    @OneToMany(mappedBy = "product",fetch = FetchType.LAZY)
+    private List<SKUs> skus;
     @OneToMany(mappedBy = "product")
     private List<ProductVariants> productVariants;
 
-
-    public Products(String name, String description, Subcategories subcategory, List<ProductVariants> productVariants) {
+    public Products(String name, String description, Subcategories subcategory, List<ProductAttributes> productAttributes, List<SKUs> skus, List<ProductVariants> productVariants) {
         this.name = name;
         this.description = description;
         this.subcategory = subcategory;
+        this.productAttributes = productAttributes;
+        this.skus = skus;
         this.productVariants = productVariants;
     }
 
-    public Products() {
+    public List<SKUs> getSkus() {
+        return skus;
+    }
+
+    public void setSkus(List<SKUs> skus) {
+        this.skus = skus;
     }
 
     public List<ProductVariants> getProductVariants() {
@@ -34,6 +44,17 @@ public class Products {
 
     public void setProductVariants(List<ProductVariants> productVariants) {
         this.productVariants = productVariants;
+    }
+
+    public List<ProductAttributes> getProductAttributes() {
+        return productAttributes;
+    }
+
+    public void setProductAttributes(List<ProductAttributes> productAttributes) {
+        this.productAttributes = productAttributes;
+    }
+
+    public Products() {
     }
 
     public Long getId() {
