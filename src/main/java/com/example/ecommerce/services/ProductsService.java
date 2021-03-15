@@ -30,5 +30,9 @@ public class ProductsService {
     public List<Products> findBySubCategoryId(Long id){
         return productsRepository.findAllBySubcategory_Id(id);
     }
+    @Transactional
+    public Products findById(Long id){
+        return productsRepository.findById(id).get();
+    }
 
 }

@@ -15,25 +15,25 @@ public class Products {
     @JoinColumn(name = "subcategory_id")
     private Subcategories subcategory;
     @OneToMany(mappedBy = "product")
-    private List<ProductDetails> productDetails;
+    private List<ProductVariants> productVariants;
 
 
-    public Products(String name, String description, Subcategories subcategory, List<ProductDetails> productDetails) {
+    public Products(String name, String description, Subcategories subcategory, List<ProductVariants> productVariants) {
         this.name = name;
         this.description = description;
         this.subcategory = subcategory;
-        this.productDetails = productDetails;
+        this.productVariants = productVariants;
     }
 
     public Products() {
     }
 
-    public List<ProductDetails> getProductDetails() {
-        return productDetails;
+    public List<ProductVariants> getProductVariants() {
+        return productVariants;
     }
 
-    public void setProductDetails(List<ProductDetails> productDetails) {
-        this.productDetails = productDetails;
+    public void setProductVariants(List<ProductVariants> productVariants) {
+        this.productVariants = productVariants;
     }
 
     public Long getId() {

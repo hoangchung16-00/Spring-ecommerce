@@ -30,9 +30,9 @@
                             <!-- Modal view content -->
                             <div class="col-md-7 col-sm-7 col-xs-12">
                                 <div class="aa-product-view-content">
-                                    <h3>T-Shirt</h3>
+                                    <h3>${product.name}</h3>
                                     <div class="aa-price-block">
-                                        <span class="aa-product-view-price">$34.99</span>
+                                        <span class="aa-product-view-price"></span>
                                         <p class="aa-product-avilability">Avilability: <span>In stock</span></p>
                                     </div>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis animi, veritatis quae repudiandae quod nulla porro quidem, itaque quis quaerat!</p>
