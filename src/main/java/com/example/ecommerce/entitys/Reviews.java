@@ -11,10 +11,10 @@ public class Reviews {
     private String description;
     private int rating;
     @ManyToOne
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "productId")
     private Products product;
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userId")
     private Users user;
 
     public Reviews(String description, int rating, Products product, Users user) {

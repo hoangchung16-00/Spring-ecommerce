@@ -5,7 +5,7 @@ import org.eclipse.jdt.internal.compiler.ast.FalseLiteral;
 import javax.persistence.*;
 import java.util.List;
 @Entity
-@Table(name = "cart")
+@Table(name = "carts")
 public class Carts {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -13,7 +13,7 @@ public class Carts {
     private int quantity;
     private Double total;
     @OneToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userId")
     private Users user;
     @OneToMany(mappedBy = "cart",fetch = FetchType.EAGER)
     private List<CartItems> cartItems;

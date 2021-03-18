@@ -1,38 +1,43 @@
 package com.example.ecommerce.entitys;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "cartitems")
+@Table(name = "cartItems")
 public class CartItems {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+
+
     private int quantity;
     private Double total;
+
     @ManyToOne
-    @JoinColumn(name = "cart_id")
+    @JoinColumn(name = "cartId")
     private Carts cart;
-    @OneToOne
-    @JoinColumn(name = "sku_id")
-    private SKUs sku;
+
+    @ManyToOne
+    @JoinColumn(name = "productAttributeValueId")
+    private ProductAttributeValues productAttributeValue;
 
     public CartItems() {
     }
 
-    public CartItems(int quantity, Double total, Carts cart, SKUs sku) {
+    public CartItems(int quantity, Double total, Carts cart, ProductAttributeValues productAttributeValue) {
         this.quantity = quantity;
         this.total = total;
         this.cart = cart;
-        this.sku = sku;
+        this.productAttributeValue = productAttributeValue;
     }
 
-    public SKUs getSku() {
-        return sku;
+    public ProductAttributeValues getProductAttributeValue() {
+        return productAttributeValue;
     }
 
-    public void setSku(SKUs sku) {
-        this.sku = sku;
+    public void setProductAttributeValue(ProductAttributeValues productAttributeValue) {
+        this.productAttributeValue = productAttributeValue;
     }
 
     public Long getId() {
@@ -42,6 +47,7 @@ public class CartItems {
     public void setId(Long id) {
         this.id = id;
     }
+
 
     public int getQuantity() {
         return quantity;
@@ -59,6 +65,7 @@ public class CartItems {
         this.total = total;
     }
 
+
     public Carts getCart() {
         return cart;
     }
@@ -66,6 +73,5 @@ public class CartItems {
     public void setCart(Carts cart) {
         this.cart = cart;
     }
-
 
 }

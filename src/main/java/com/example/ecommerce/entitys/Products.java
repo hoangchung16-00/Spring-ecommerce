@@ -12,49 +12,28 @@ public class Products {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "subcategory_id")
+    @JoinColumn(name = "subcategoryId")
     private Subcategories subcategory;
-    @OneToMany(mappedBy = "product",fetch = FetchType.LAZY)
-    private List<ProductAttributes> productAttributes;
-    @OneToMany(mappedBy = "product",fetch = FetchType.LAZY)
-    private List<SKUs> skus;
-    @OneToMany(mappedBy = "product")
-    private List<ProductVariants> productVariants;
 
-    public Products(String name, String description, Subcategories subcategory, List<ProductAttributes> productAttributes, List<SKUs> skus, List<ProductVariants> productVariants) {
+    @ManyToMany(mappedBy = "products")
+    private List<ProductAttributeValues> productAttributeValues;
+
+    public Products() {
+    }
+
+    public Products(String name, String description, Subcategories subcategory, List<ProductAttributeValues> productAttributeValues) {
         this.name = name;
         this.description = description;
         this.subcategory = subcategory;
-        this.productAttributes = productAttributes;
-        this.skus = skus;
-        this.productVariants = productVariants;
+        this.productAttributeValues = productAttributeValues;
     }
 
-    public List<SKUs> getSkus() {
-        return skus;
+    public List<ProductAttributeValues> getProductAttributeValues() {
+        return productAttributeValues;
     }
 
-    public void setSkus(List<SKUs> skus) {
-        this.skus = skus;
-    }
-
-    public List<ProductVariants> getProductVariants() {
-        return productVariants;
-    }
-
-    public void setProductVariants(List<ProductVariants> productVariants) {
-        this.productVariants = productVariants;
-    }
-
-    public List<ProductAttributes> getProductAttributes() {
-        return productAttributes;
-    }
-
-    public void setProductAttributes(List<ProductAttributes> productAttributes) {
-        this.productAttributes = productAttributes;
-    }
-
-    public Products() {
+    public void setProductAttributeValues(List<ProductAttributeValues> productAttributeValues) {
+        this.productAttributeValues = productAttributeValues;
     }
 
     public Long getId() {

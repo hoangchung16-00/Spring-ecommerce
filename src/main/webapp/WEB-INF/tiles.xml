@@ -19,4 +19,7 @@
     <definition name="productdetail" extends="client.definition">
         <put-attribute name="body" value="/WEB-INF/jsp/client/productdetail.jsp"/>
     </definition>
+    <definition name="cart" extends="client.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/client/cart.jsp"/>
+    </definition>
 </tiles-definitions>

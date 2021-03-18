@@ -13,7 +13,7 @@ public class Subcategories {
     private String slug;
     private Integer sorting;
     @ManyToOne
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "categoryId")
     private Categories category;
     @OneToMany(mappedBy = "subcategory",fetch = FetchType.EAGER)
     private List<Products> products;

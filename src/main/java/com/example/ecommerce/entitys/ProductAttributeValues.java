@@ -4,33 +4,40 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "product_attribute_values")
+@Table(name = "productAttributeValues")
 public class ProductAttributeValues {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String value;
+    @ManyToMany
+    @JoinColumn(name = "productId")
+    private List<Products> products;
+
+    @OneToMany(mappedBy ="productAttributeValue")
+    private List<CartItems> cartItems;
+
     @ManyToOne
-    @JoinColumn(name = "product_attribute_id")
+    @JoinColumn(name = "productAttributeId")
     private ProductAttributes productAttribute;
-    @ManyToMany(mappedBy = "productAttributeValues")
-    private List<ProductVariants> productVariants;
 
-    public ProductAttributeValues(String value, ProductAttributes productAttribute, List<ProductVariants> productVariants) {
-        this.value = value;
-        this.productAttribute = productAttribute;
-        this.productVariants = productVariants;
-    }
-
-    public List<ProductVariants> getProductVariants() {
-        return productVariants;
-    }
-
-    public void setProductVariants(List<ProductVariants> productVariants) {
-        this.productVariants = productVariants;
-    }
 
     public ProductAttributeValues() {
+    }
+
+    public ProductAttributeValues(String value, List<Products> products, List<CartItems> cartItems, ProductAttributes productAttribute) {
+        this.value = value;
+        this.products = products;
+        this.cartItems = cartItems;
+        this.productAttribute = productAttribute;
+    }
+
+    public List<CartItems> getCartItems() {
+        return cartItems;
+    }
+
+    public void setCartItems(List<CartItems> cartItems) {
+        this.cartItems = cartItems;
     }
 
     public Long getId() {
@@ -47,6 +54,14 @@ public class ProductAttributeValues {
 
     public void setValue(String value) {
         this.value = value;
+    }
+
+    public List<Products> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Products> products) {
+        this.products = products;
     }
 
     public ProductAttributes getProductAttribute() {
