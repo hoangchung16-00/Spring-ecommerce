@@ -10,6 +10,35 @@
         <put-attribute name="body" value="" />
         <put-attribute name="footer" value="/WEB-INF/jsp/client/footer.jsp" />
     </definition>
+
+
+    <definition name="admin.definition"
+                template="/WEB-INF/jsp/layouts/admin-layout.jsp">
+        <put-attribute name="topbar" value="/WEB-INF/jsp/admin/topbar.jsp" />
+        <put-attribute name="sidebar" value="/WEB-INF/jsp/admin/sidebar.jsp" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer" value="/WEB-INF/jsp/admin/footer.jsp" />
+    </definition>
+    <definition name="cms/home" extends="admin.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/home.jsp"/>
+    </definition>
+    <definition name="cms/category" extends="admin.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/category.jsp"/>
+    </definition>
+    <definition name="cms/subcategory" extends="admin.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/subcategory.jsp"/>
+    </definition>
+    <definition name="cms/product" extends="admin.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/product.jsp"/>
+    </definition>
+    <definition name="cms/editcategory" extends="admin.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/editcategory.jsp"/>
+    </definition>
+    <definition name="cms/addcategory" extends="admin.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/addcategory.jsp"/>
+    </definition>
+
+
     <definition name="index" extends="client.definition">
         <put-attribute name="body" value="/WEB-INF/jsp/client/index.jsp"/>
     </definition>

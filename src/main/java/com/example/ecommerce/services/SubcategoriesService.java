@@ -16,8 +16,4 @@ public class SubcategoriesService {
     public List<Subcategories> getSubcategories(){
         return subcategoriesRepository.findAll();
     }
-    @Transactional
-    public Subcategories findBySlug(String slug){
-        return subcategoriesRepository.findBySlug(slug);
-    }
 }

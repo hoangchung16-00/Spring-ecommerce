@@ -1,7 +1,6 @@
 package com.example.ecommerce.entitys;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "subcategories")
@@ -11,44 +10,19 @@ public class Subcategories {
     private Long id;
     private String name;
     private String slug;
-    private Integer sorting;
+    private int sorting;
     @ManyToOne
-    @JoinColumn(name = "categoryId")
+    @JoinColumn(name = "categoryid")
     private Categories category;
-    @OneToMany(mappedBy = "subcategory",fetch = FetchType.EAGER)
-    private List<Products> products;
 
-    public Categories getCategory() {
-        return category;
-    }
-
-    public void setCategory(Categories category) {
+    public Subcategories(String name, String slug, int sorting, Categories category) {
+        this.name = name;
+        this.slug = slug;
+        this.sorting = sorting;
         this.category = category;
-    }
-
-    public List<Products> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Products> products) {
-        this.products = products;
     }
 
     public Subcategories() {
-    }
-
-    public Subcategories(String name, String slug, Integer sorting) {
-        this.name = name;
-        this.slug = slug;
-        this.sorting = sorting;
-    }
-
-    public Subcategories(Long id, String name, String slug, Integer sorting, Categories category) {
-        this.id = id;
-        this.name = name;
-        this.slug = slug;
-        this.sorting = sorting;
-        this.category = category;
     }
 
     public Long getId() {
@@ -75,11 +49,19 @@ public class Subcategories {
         this.slug = slug;
     }
 
-    public Integer getSorting() {
+    public int getSorting() {
         return sorting;
     }
 
-    public void setSorting(Integer sorting) {
+    public void setSorting(int sorting) {
         this.sorting = sorting;
+    }
+
+    public Categories getCategory() {
+        return category;
+    }
+
+    public void setCategory(Categories category) {
+        this.category = category;
     }
 }

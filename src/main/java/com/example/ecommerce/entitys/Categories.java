@@ -7,13 +7,23 @@ import java.util.List;
 @Table(name = "categories")
 public class Categories {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String slug;
     private Integer sorting;
-    @OneToMany(mappedBy = "category",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "category",fetch = FetchType.LAZY)
     private List<Subcategories> subcategories;
+
+    public Categories() {
+    }
+
+    public Categories(String name, String slug, Integer sorting, List<Subcategories> subcategories) {
+        this.name = name;
+        this.slug = slug;
+        this.sorting = sorting;
+        this.subcategories = subcategories;
+    }
 
     public List<Subcategories> getSubcategories() {
         return subcategories;
@@ -21,16 +31,6 @@ public class Categories {
 
     public void setSubcategories(List<Subcategories> subcategories) {
         this.subcategories = subcategories;
-    }
-
-    public Categories() {
-    }
-
-
-    public Categories(String name, String slug, Integer sorting) {
-        this.name = name;
-        this.slug = slug;
-        this.sorting = sorting;
     }
 
     public Long getId() {
