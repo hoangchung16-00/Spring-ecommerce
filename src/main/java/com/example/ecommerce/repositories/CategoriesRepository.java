@@ -12,5 +12,5 @@ public interface CategoriesRepository extends JpaRepository<Categories,Long> {
     @Query("SELECT c FROM Categories c ")
     List<Categories> getCategories(Pageable pageable);
     @Query("SELECT count (c) FROM Categories c")
-    int getTotalCategories();
+   int getTotalCategories();
 }

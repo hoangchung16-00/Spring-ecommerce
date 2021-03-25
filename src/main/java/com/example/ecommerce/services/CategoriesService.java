@@ -56,4 +56,8 @@ public class CategoriesService {
         String slug = name.toLowerCase().replace(" ", "-");
         categoriesRepository.save(new Categories(name, slug,sorting, new ArrayList<Subcategories>()));
     }
+    @Transactional
+    public List<Categories> findAll(){
+        return categoriesRepository.findAll();
+    }
 }

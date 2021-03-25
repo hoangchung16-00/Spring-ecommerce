@@ -37,7 +37,12 @@
     <definition name="cms/addcategory" extends="admin.definition">
         <put-attribute name="body" value="/WEB-INF/jsp/admin/addcategory.jsp"/>
     </definition>
-
+    <definition name="cms/editsubcategory" extends="admin.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/editsubcategory.jsp"/>
+    </definition>
+    <definition name="cms/addsubcategory" extends="admin.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/addsubcategory.jsp"/>
+    </definition>
 
     <definition name="index" extends="client.definition">
         <put-attribute name="body" value="/WEB-INF/jsp/client/index.jsp"/>

@@ -1,12 +1,13 @@
 package com.example.ecommerce.entitys;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "subcategories")
 public class Subcategories {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String slug;
@@ -14,12 +15,23 @@ public class Subcategories {
     @ManyToOne
     @JoinColumn(name = "categoryid")
     private Categories category;
+    @OneToMany(mappedBy = "subcategory", fetch = FetchType.EAGER)
+    private List<Products> products;
 
-    public Subcategories(String name, String slug, int sorting, Categories category) {
+    public Subcategories(String name, String slug, int sorting, Categories category, List<Products> products) {
         this.name = name;
         this.slug = slug;
         this.sorting = sorting;
         this.category = category;
+        this.products = products;
+    }
+
+    public List<Products> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Products> products) {
+        this.products = products;
     }
 
     public Subcategories() {
