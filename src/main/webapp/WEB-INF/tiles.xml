@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <!-- Base Define -->
+    <definition name="client.definition"
+                template="/WEB-INF/jsp/layouts/client-layout.jsp">
+        <put-attribute name="header" value="/WEB-INF/jsp/client/header.jsp" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer" value="/WEB-INF/jsp/client/footer.jsp" />
+    </definition>
+
+
+    <definition name="admin.definition"
+                template="/WEB-INF/jsp/layouts/admin-layout.jsp">
+        <put-attribute name="topbar" value="/WEB-INF/jsp/admin/topbar.jsp" />
+        <put-attribute name="sidebar" value="/WEB-INF/jsp/admin/sidebar.jsp" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer" value="/WEB-INF/jsp/admin/footer.jsp" />
+    </definition>
+    <definition name="cms/home" extends="admin.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/home.jsp"/>
+    </definition>
+    <definition name="cms/category" extends="admin.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/category.jsp"/>
+    </definition>
+    <definition name="cms/subcategory" extends="admin.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/subcategory.jsp"/>
+    </definition>
+    <definition name="cms/product" extends="admin.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/product.jsp"/>
+    </definition>
+    <definition name="cms/editcategory" extends="admin.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/editcategory.jsp"/>
+    </definition>
+    <definition name="cms/addcategory" extends="admin.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/addcategory.jsp"/>
+    </definition>
+    <definition name="cms/editsubcategory" extends="admin.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/editsubcategory.jsp"/>
+    </definition>
+    <definition name="cms/addsubcategory" extends="admin.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/addsubcategory.jsp"/>
+    </definition>
+    <definition name="cms/addproduct" extends="admin.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/addproduct.jsp"/>
+    </definition>
+    <definition name="cms/editproduct" extends="admin.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/editproduct.jsp"/>
+    </definition>
+
+    <definition name="index" extends="client.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/client/index.jsp"/>
+    </definition>
+    <definition name="products" extends="client.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/client/products.jsp"/>
+    </definition>
+    <definition name="productdetail" extends="client.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/client/productdetail.jsp"/>
+    </definition>
+    <definition name="cart" extends="client.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/client/cart.jsp"/>
+    </definition>
+</tiles-definitions>
