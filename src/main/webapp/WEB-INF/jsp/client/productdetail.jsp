@@ -42,17 +42,13 @@
                                     <form>
                                         <div class="aa-prod-view-size">
                                             <c:forEach items="${productAttributeSize}" var="size">
-                                                <a href="#">${size.productAttribute.name}</a>
+                                                <a href="#">${size.value}</a>
                                             </c:forEach>
                                         </div>
                                         <h4>Color</h4>
                                         <div class="aa-color-tag">
                                             <c:forEach items="${productAttributeColor}" var="color">
-                                            <a href="#" class="aa-color-yellow">${color.productAttribute.name}</a>
-<%--                                            <a href="#" class="aa-color-yellow"></a>--%>
-<%--                                            <a href="#" class="aa-color-pink"></a>--%>
-<%--                                            <a href="#" class="aa-color-black"></a>--%>
-<%--                                            <a href="#" class="aa-color-white"></a>--%>
+                                            <a href="#" class="aa-color-${color.value}"></a>
                                             </c:forEach>
                                         </div>
                                     </form>

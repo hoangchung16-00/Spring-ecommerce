@@ -30,8 +30,8 @@ public static final int PAGE_SIZE = 2;
     @GetMapping("/productdetail/{id}")
     public String getProductDetail(@PathVariable("id") Long id, Model model){
         model.addAttribute("productAttributeSize", productService.getProductAttributeSizeByProductId(id));
-//        model.addAttribute("productAttributeColor",productService.getProductAttributeColorByProductId(id));
-//        model.addAttribute("productDetail", productService.findById(id));
+        model.addAttribute("productAttributeColor",productService.getProductAttributeColorByProductId(id));
+        model.addAttribute("productDetail", productService.findById(id));
         return "productdetail";
     }
 }

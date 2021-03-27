@@ -72,9 +72,5 @@ public class ProductService {
     public List<ProductAttributeValues> getProductAttributeColorByProductId(Long id){
         return productAttributeValueRepository.getProductAttributeColorByProductId(id);
     }
-//    @Transactional
-//    public List<ProductAttributeValues> getabc(Long id){
-//        return productRepository.findById(id).get().getProductAttributeValues();
-//    }
 }
 

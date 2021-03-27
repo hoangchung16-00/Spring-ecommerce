@@ -7,8 +7,12 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface ProductAttributeValueRepository extends JpaRepository<ProductAttributeValues, Long> {
-    @Query("select pav from ProductAttributeValues pav,Products p left outer join fetch pav.products where p.id=?1")
+    @Query("select pav from ProductValues pv, ProductAttributeValues pav, Products p " +
+            "where pv.productAttributeValue.id = pav.id and pv.product.id = p.id and" +
+            " pav.productAttribute.id = 1 and p.id = ?1")
     List<ProductAttributeValues> getProductAttributeSizeByProductId(Long id);
-    @Query("select pa from Products p, ProductAttributeValues pa where p.id = pa.productAttribute.id and p.id = ?1 and pa.productAttribute.id =2")
+    @Query("select pav from ProductValues pv, ProductAttributeValues pav, Products p " +
+            "where pv.productAttributeValue.id = pav.id and pv.product.id = p.id and" +
+            " pav.productAttribute.id = 2 and p.id = ?1")
     List<ProductAttributeValues> getProductAttributeColorByProductId(Long id);
 }
