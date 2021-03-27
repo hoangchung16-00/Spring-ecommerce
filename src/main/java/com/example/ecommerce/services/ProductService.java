@@ -1,8 +1,10 @@
 package com.example.ecommerce.services;
 
+import com.example.ecommerce.entitys.ProductAttributeValues;
 import com.example.ecommerce.entitys.Products;
 import com.example.ecommerce.entitys.Subcategories;
 import com.example.ecommerce.forms.AddProductForm;
+import com.example.ecommerce.repositories.ProductAttributeValueRepository;
 import com.example.ecommerce.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,6 +19,8 @@ import java.util.List;
 public class ProductService {
     @Autowired
     private ProductRepository productRepository;
+    @Autowired
+    private ProductAttributeValueRepository productAttributeValueRepository;
     @Transactional
     public List<Products> findAll(){
         return productRepository.findAll();
@@ -52,5 +56,25 @@ public class ProductService {
     public int getTotalProduct(){
         return productRepository.getTotalProducts();
     }
+    @Transactional
+    public List<Products> getProductBySubCategorySlug(String slug, Pageable pageable){
+        return productRepository.getProductsBySubCategorySlug(slug, pageable);
+    }
+    @Transactional
+    public int getTotalProductBySubCategorySlug(String slug){
+        return productRepository.getTotalProductBySubCategorySlug(slug);
+    }
+    @Transactional
+    public List<ProductAttributeValues> getProductAttributeSizeByProductId(Long id) {
+        return productAttributeValueRepository.getProductAttributeSizeByProductId(id);
+    }
+    @Transactional
+    public List<ProductAttributeValues> getProductAttributeColorByProductId(Long id){
+        return productAttributeValueRepository.getProductAttributeColorByProductId(id);
+    }
+//    @Transactional
+//    public List<ProductAttributeValues> getabc(Long id){
+//        return productRepository.findById(id).get().getProductAttributeValues();
+//    }
 }
 

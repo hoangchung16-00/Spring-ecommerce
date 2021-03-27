@@ -14,10 +14,15 @@ public class ProductAttributeValues {
     @JoinColumn(name = "productattributeid")
     private ProductAttributes productAttribute;
 
+    @ManyToMany()
+    @JoinColumn(name = "productid")
+    private List<Products> products;
 
-    public ProductAttributeValues(String value, ProductAttributes productAttribute) {
+
+    public ProductAttributeValues(String value, ProductAttributes productAttribute, List<Products> products) {
         this.value = value;
         this.productAttribute = productAttribute;
+        this.products = products;
     }
 
     public ProductAttributeValues() {
@@ -41,6 +46,14 @@ public class ProductAttributeValues {
 
     public ProductAttributes getProductAttribute() {
         return productAttribute;
+    }
+
+    public List<Products> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Products> products) {
+        this.products = products;
     }
 
     public void setProductAttribute(ProductAttributes productAttribute) {

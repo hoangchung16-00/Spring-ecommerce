@@ -1,6 +1,7 @@
 package com.example.ecommerce.entitys;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "products")
@@ -17,7 +18,20 @@ public class Products {
     @JoinColumn(name = "subcategoryid")
     private Subcategories subcategory;
 
+    @ManyToMany(mappedBy = "products")
+    private List<ProductAttributeValues> productAttributeValues;
+
     public Products() {
+    }
+
+    public Products(String name, String image, Double price, int quantity, String description, Subcategories subcategory, List<ProductAttributeValues> productAttributeValues) {
+        this.name = name;
+        this.image = image;
+        this.price = price;
+        this.quantity = quantity;
+        this.description = description;
+        this.subcategory = subcategory;
+        this.productAttributeValues = productAttributeValues;
     }
 
     public Products(String name, String image, Double price, int quantity, String description, Subcategories subcategory) {
@@ -27,7 +41,14 @@ public class Products {
         this.quantity = quantity;
         this.description = description;
         this.subcategory = subcategory;
+    }
 
+    public List<ProductAttributeValues> getProductAttributeValues() {
+        return productAttributeValues;
+    }
+
+    public void setProductAttributeValues(List<ProductAttributeValues> productAttributeValues) {
+        this.productAttributeValues = productAttributeValues;
     }
 
     public Long getId() {

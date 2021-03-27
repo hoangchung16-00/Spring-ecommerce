@@ -10,14 +10,14 @@
 /* BASE - Base tyles, Variables, Mixins, etc. */
 
 
-@import 'base/_variables.scss';
-@import 'base/_mixins.scss';
-@import 'base/_base.scss';
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/base';
 
 /* MODULES - Individual site components */
 
-@import 'modules/_typography.scss';
-@import 'modules/_buttons.scss';
+@import 'modules/typography';
+@import 'modules/buttons';
 
 
 
@@ -29,26 +29,26 @@
  HEADER SECTION
 ====================*/
 
-@import 'layouts/_header.scss';
+@import 'layouts/header';
 
 /*==================
  NAVBAR SECTION
 ====================*/
 
-@import 'layouts/_nav.scss';
+@import 'layouts/nav';
 
 /* ALL SECTION */
 
-@import 'modules/_sections.scss';
+@import 'modules/sections';
 
 /*==================
  FOOTER SECTION
 ====================*/
 
-@import 'layouts/_footer.scss';
+@import 'layouts/footer';
 
 /*==================
  RESPONSIVE DESIGN
 ====================*/
 
-@import 'modules/_responsive.scss';
+@import 'modules/responsive';

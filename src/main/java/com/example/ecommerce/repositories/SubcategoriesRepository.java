@@ -13,4 +13,5 @@ public interface SubcategoriesRepository extends JpaRepository<Subcategories,Lon
     List<Subcategories> getSubcategories(Pageable pageable);
     @Query("SELECT count (c) FROM Categories c")
     int getTotalSubCategories();
+
 }
