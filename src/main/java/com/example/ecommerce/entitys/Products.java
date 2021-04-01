@@ -10,9 +10,6 @@ public class Products {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String image;
-    private Double price;
-    private int quantity;
     private String description;
     @ManyToOne
     @JoinColumn(name = "subcategoryid")
@@ -24,21 +21,15 @@ public class Products {
     public Products() {
     }
 
-    public Products(String name, String image, Double price, int quantity, String description, Subcategories subcategory, List<ProductValues> productValues) {
+    public Products(String name, String description, Subcategories subcategory, List<ProductValues> productValues) {
         this.name = name;
-        this.image = image;
-        this.price = price;
-        this.quantity = quantity;
         this.description = description;
         this.subcategory = subcategory;
         this.productValues = productValues;
     }
 
-    public Products(String name, String image, Double price, int quantity, String description, Subcategories subcategory) {
+    public Products(String name, String description, Subcategories subcategory) {
         this.name = name;
-        this.image = image;
-        this.price = price;
-        this.quantity = quantity;
         this.description = description;
         this.subcategory = subcategory;
     }
@@ -67,29 +58,7 @@ public class Products {
         this.name = name;
     }
 
-    public String getImage() {
-        return image;
-    }
 
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
 
     public String getDescription() {
         return description;

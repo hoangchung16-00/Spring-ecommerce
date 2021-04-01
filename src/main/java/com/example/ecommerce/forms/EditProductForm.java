@@ -7,21 +7,16 @@ public class EditProductForm {
     private Long id;
     @NotBlank(message = "Name can not blank")
     private String name;
-    @Min(value = 1, message = "Sorting Invalid")
-    private int quantity;
     @NotBlank
     private String description;
-    @Min(value = 1)
-    private Double price;
+
 
     private Long subcategoryid;
 
-    public EditProductForm(Long id, @NotBlank(message = "Name can not blank") String name, @Min(value = 1, message = "Sorting Invalid") int quantity, @NotBlank String description, @Min(value = 1) Double price, Long subcategoryid) {
+    public EditProductForm(Long id, @NotBlank(message = "Name can not blank") String name, @NotBlank String description, Long subcategoryid) {
         this.id = id;
         this.name = name;
-        this.quantity = quantity;
         this.description = description;
-        this.price = price;
         this.subcategoryid = subcategoryid;
     }
 
@@ -44,14 +39,6 @@ public class EditProductForm {
         this.name = name;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -60,13 +47,6 @@ public class EditProductForm {
         this.description = description;
     }
 
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
 
     public Long getSubcategoryid() {
         return subcategoryid;

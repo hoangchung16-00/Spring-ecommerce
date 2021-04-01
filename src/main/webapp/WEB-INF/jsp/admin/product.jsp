@@ -12,9 +12,6 @@
                     <th>Id</th>
                     <th>Name</th>
                     <th>Description</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Image</th>
                     <th>Category</th>
                     <th colspan="2">Action</th>
                 </tr>
@@ -24,9 +21,6 @@
                     <th>Id</th>
                     <th>Name</th>
                     <th>Description</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Image</th>
                     <th>Category</th>
                     <th colspan="2">Action</th>
                 </tr>
@@ -37,9 +31,6 @@
                     <th>${product.id}</th>
                     <th>${product.name}</th>
                     <th>${product.description}</th>
-                    <th>${product.quantity}</th>
-                    <th>${product.price}</th>
-                    <th>${product.image}</th>
                     <th>${product.subcategory.name}</th>
                     <td><a href="/cms/editproduct/${product.id}"><i class="fa fa-pen"></i></a></td>
                     <td><a href="/cms/deleteproduct/${product.id}"><i class="fa fa-trash"></i></a></td>

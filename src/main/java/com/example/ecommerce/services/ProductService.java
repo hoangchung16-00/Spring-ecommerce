@@ -1,6 +1,7 @@
 package com.example.ecommerce.services;
 
 import com.example.ecommerce.entitys.ProductAttributeValues;
+import com.example.ecommerce.entitys.ProductValues;
 import com.example.ecommerce.entitys.Products;
 import com.example.ecommerce.entitys.Subcategories;
 import com.example.ecommerce.forms.AddProductForm;
@@ -26,21 +27,18 @@ public class ProductService {
         return productRepository.findAll();
     }
     @Transactional
-    public void addProduct(String name, String image, Double price, int quantity, String description, Subcategories subcategories){
-        productRepository.save(new Products(name, image,price,quantity, description, subcategories));
+    public void addProduct(String name, String description, Subcategories subcategories){
+        productRepository.save(new Products(name, description, subcategories));
     }
     @Transactional
     public Products findById(Long id){
         return productRepository.findById(id).get();
     }
     @Transactional
-    public void editProduct(Long id, String name, String image, Double price, int quantity, String description, Subcategories subcategories){
+    public void editProduct(Long id, String name, String description, Subcategories subcategories){
         Products products = productRepository.findById(id).get();
         products.setName(name);
         products.setDescription(description);
-        products.setQuantity(quantity);
-        products.setPrice(price);
-        products.setImage(image);
         products.setSubcategory(subcategories);
         productRepository.save(products);
     }
@@ -71,6 +69,14 @@ public class ProductService {
     @Transactional
     public List<ProductAttributeValues> getProductAttributeColorByProductId(Long id){
         return productAttributeValueRepository.getProductAttributeColorByProductId(id);
+    }
+    @Transactional
+    public int getSumQuantity(Long id){
+        return productAttributeValueRepository.getSumQuantity(id);
+    }
+    @Transactional
+    public int getSumProductValueBySize(Long id, Long valueid){
+        return productAttributeValueRepository.getSumProductValueBySize(id, valueid);
     }
 }
 

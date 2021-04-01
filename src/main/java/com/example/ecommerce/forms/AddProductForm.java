@@ -6,20 +6,15 @@ import javax.validation.constraints.NotBlank;
 public class AddProductForm {
     @NotBlank(message = "Name can not blank")
     private String name;
-    @Min(value = 1, message = "Sorting Invalid")
-    private int quantity;
     @NotBlank
     private String description;
     @Min(value = 1)
-    private Double price;
 
     private Long subcategoryid;
 
-    public AddProductForm(@NotBlank(message = "Name can not blank") String name, @Min(value = 1, message = "Sorting Invalid") int quantity, @NotBlank String description, @Min(value = 1) Double price, Long subcategoryid) {
+    public AddProductForm(@NotBlank(message = "Name can not blank") String name,  @NotBlank String description, Long subcategoryid) {
         this.name = name;
-        this.quantity = quantity;
         this.description = description;
-        this.price = price;
         this.subcategoryid = subcategoryid;
     }
 
@@ -34,13 +29,6 @@ public class AddProductForm {
         this.name = name;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
 
     public String getDescription() {
         return description;
@@ -48,14 +36,6 @@ public class AddProductForm {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
     }
 
     public Long getSubcategoryid() {

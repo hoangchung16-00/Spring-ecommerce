@@ -37,7 +37,7 @@
                                 <!-- start single product item -->
                                 <li>
                                     <figure>
-                                        <a class="aa-product-img" href="/productdetail/${product.id}"><img src="/admin/img/${product.image}"></a>
+                                        <a class="aa-product-img" href="/productdetail/${product.id}"><%--<img src="/admin/img/${product.image}">--%></a>
                                         <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
                                         <figcaption>
                                             <h4 class="aa-product-title"><a href="/productdetail/${product.id}">${product.name}</a></h4>

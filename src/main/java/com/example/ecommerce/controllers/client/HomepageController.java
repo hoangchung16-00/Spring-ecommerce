@@ -32,6 +32,8 @@ public static final int PAGE_SIZE = 2;
         model.addAttribute("productAttributeSize", productService.getProductAttributeSizeByProductId(id));
         model.addAttribute("productAttributeColor",productService.getProductAttributeColorByProductId(id));
         model.addAttribute("productDetail", productService.findById(id));
+        model.addAttribute("productValue",productService.getSumQuantity(productService.findById(id).getId()));
         return "productdetail";
     }
+
 }

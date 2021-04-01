@@ -39,21 +39,20 @@ public class CMSProductController extends BaseExtender{
         return "cms/addproduct";
     }
     @PostMapping("cms/addproduct")
-    public String postAddProduct(Model model, @RequestParam("imageProduct") MultipartFile imageProduct, @Valid @ModelAttribute("addProductForm")AddProductForm addProductForm, BindingResult bindingResult) throws IOException {
+    public String postAddProduct(Model model, /*@RequestParam("imageProduct") MultipartFile imageProduct,*/ @Valid @ModelAttribute("addProductForm")AddProductForm addProductForm, BindingResult bindingResult) throws IOException {
         if (bindingResult.hasErrors()){
 
         }
-        String filename = imageProduct.getOriginalFilename();
-        Path imagePath = Paths.get("src/main/resources/static/admin/img/"+filename);
-        Files.write(imagePath,imageProduct.getBytes());
-        productService.addProduct(addProductForm.getName(),filename,addProductForm.getPrice(),addProductForm.getQuantity()
-                , addProductForm.getDescription(), subcategoriesService.findById(addProductForm.getSubcategoryid()));
+//        String filename = imageProduct.getOriginalFilename();
+//        Path imagePath = Paths.get("src/main/resources/static/admin/img/"+filename);
+//        Files.write(imagePath,imageProduct.getBytes());
+        productService.addProduct(addProductForm.getName(), addProductForm.getDescription(), subcategoriesService.findById(addProductForm.getSubcategoryid()));
         return "redirect:/cms/product";
     }
     @GetMapping("cms/editproduct/{id}")
     public String getCMSEditProduct(@PathVariable("id") Long id, Model model){
         Products products = productService.findById(id);
-        model.addAttribute("editProductForm", new EditProductForm(products.getId(),products.getName(),products.getQuantity(),products.getDescription(),products.getPrice(),products.getSubcategory().getId()));
+        model.addAttribute("editProductForm", new EditProductForm(products.getId(),products.getName(),products.getDescription(),products.getSubcategory().getId()));
         return "cms/editproduct";
     }
     @PostMapping("cms/editproduct")
@@ -61,14 +60,13 @@ public class CMSProductController extends BaseExtender{
         if (bindingResult.hasErrors()){
 
         }
-        String filename = imageProduct.getOriginalFilename();
-        Path imagePath = Paths.get("src/main/resources/static/admin/img/"+filename);
-        Files.write(imagePath,imageProduct.getBytes());
-        String oldFilename = productService.findById(editProductForm.getId()).getImage();
-        Path oldImagePath = Paths.get( "src/main/resources/static/admin/img/"+oldFilename);
-        Files.deleteIfExists(oldImagePath);
-        productService.editProduct(editProductForm.getId(),editProductForm.getName(),filename,editProductForm.getPrice(),editProductForm.getQuantity()
-                , editProductForm.getDescription(), subcategoriesService.findById(editProductForm.getSubcategoryid()));
+//        String filename = imageProduct.getOriginalFilename();
+//        Path imagePath = Paths.get("src/main/resources/static/admin/img/"+filename);
+//        Files.write(imagePath,imageProduct.getBytes());
+//        String oldFilename = productService.findById(editProductForm.getId()).getImage();
+//        Path oldImagePath = Paths.get( "src/main/resources/static/admin/img/"+oldFilename);
+//        Files.deleteIfExists(oldImagePath);
+        productService.editProduct(editProductForm.getId(),editProductForm.getName(), editProductForm.getDescription(), subcategoriesService.findById(editProductForm.getSubcategoryid()));
         return "redirect:/cms/product";
     }
     @GetMapping("cms/deleteproduct/{id}")

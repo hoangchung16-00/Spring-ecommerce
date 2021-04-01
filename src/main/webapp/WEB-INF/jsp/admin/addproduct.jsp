@@ -36,7 +36,7 @@
                 <h2 class="title">EDIT CATEGORY</h2>
             </div>
             <div class="card-body">
-                <form:form method="POST" action="/cms/addproduct" modelAttribute="addProductForm" enctype="multipart/form-data">
+                <form:form method="POST" action="/cms/addproduct" modelAttribute="addProductForm">
                     <div class="form-row">
                         <div class="name">Name</div>
                         <div class="value">
@@ -55,32 +55,32 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="name">Quantity</div>
-                        <div class="value">
-                            <div class="input-group">
-                                <form:input path="quantity" class="input--style-5" type="text" />
-                                <form:errors path="quantity"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="name">Price</div>
-                        <div class="value">
-                            <div class="input-group">
-                                <form:input path="price" class="input--style-5" type="text" />
-                                <form:errors path="price"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="name">Image</div>
-                        <div class="value">
-                            <div class="input-group">
-                                <input type="file" name="imageProduct"/>
-                            </div>
-                        </div>
-                    </div>
+<%--                    <div class="form-row">--%>
+<%--                        <div class="name">Quantity</div>--%>
+<%--                        <div class="value">--%>
+<%--                            <div class="input-group">--%>
+<%--                                <form:input path="quantity" class="input--style-5" type="text" />--%>
+<%--                                <form:errors path="quantity"/>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                    <div class="form-row">--%>
+<%--                        <div class="name">Price</div>--%>
+<%--                        <div class="value">--%>
+<%--                            <div class="input-group">--%>
+<%--                                <form:input path="price" class="input--style-5" type="text" />--%>
+<%--                                <form:errors path="price"/>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                    <div class="form-row">--%>
+<%--                        <div class="name">Image</div>--%>
+<%--                        <div class="value">--%>
+<%--                            <div class="input-group">--%>
+<%--                                <input type="file" name="imageProduct"/>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
                     <div class="form-row">
                         <div class="name">Category</div>
                         <div class="value">
