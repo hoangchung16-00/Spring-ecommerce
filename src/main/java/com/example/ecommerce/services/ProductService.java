@@ -1,19 +1,15 @@
 package com.example.ecommerce.services;
 
 import com.example.ecommerce.entitys.ProductAttributeValues;
-import com.example.ecommerce.entitys.ProductValues;
 import com.example.ecommerce.entitys.Products;
 import com.example.ecommerce.entitys.Subcategories;
-import com.example.ecommerce.forms.AddProductForm;
 import com.example.ecommerce.repositories.ProductAttributeValueRepository;
 import com.example.ecommerce.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.net.PortUnreachableException;
 import java.util.List;
 
 @Service
@@ -66,17 +62,17 @@ public class ProductService {
     public List<ProductAttributeValues> getProductAttributeSizeByProductId(Long id) {
         return productAttributeValueRepository.getProductAttributeSizeByProductId(id);
     }
-    @Transactional
-    public List<ProductAttributeValues> getProductAttributeColorByProductId(Long id){
-        return productAttributeValueRepository.getProductAttributeColorByProductId(id);
-    }
-    @Transactional
-    public int getSumQuantity(Long id){
-        return productAttributeValueRepository.getSumQuantity(id);
-    }
-    @Transactional
-    public int getSumProductValueBySize(Long id, Long valueid){
-        return productAttributeValueRepository.getSumProductValueBySize(id, valueid);
-    }
+//    @Transactional
+//    public List<ProductAttributeValues> getProductAttributeColorByProductId(Long id){
+//        return productAttributeValueRepository.getProductAttributeColorByProductId(id);
+//    }
+//    @Transactional
+//    public int getSumQuantity(Long id){
+//        return productAttributeValueRepository.getSumQuantity(id);
+//    }
+//    @Transactional
+//    public int getSumProductValueBySize(Long id, Long valueid){
+//        return productAttributeValueRepository.getSumProductValueBySize(id, valueid);
+//    }
 }
 

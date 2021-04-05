@@ -12,12 +12,16 @@ public class ProductAttributes {
     private String name;
     @OneToMany(mappedBy = "productAttribute")
     private List<ProductAttributeValues> productAttributeValues;
+    @ManyToOne
+    @JoinColumn(name = "productid")
+    private Products product;
     public ProductAttributes() {
     }
 
-    public ProductAttributes(String name, List<ProductAttributeValues> productAttributeValues) {
+    public ProductAttributes(String name, List<ProductAttributeValues> productAttributeValues, Products product) {
         this.name = name;
         this.productAttributeValues = productAttributeValues;
+        this.product = product;
     }
 
     public List<ProductAttributeValues> getProductAttributeValues() {
@@ -26,6 +30,14 @@ public class ProductAttributes {
 
     public void setProductAttributeValues(List<ProductAttributeValues> productAttributeValues) {
         this.productAttributeValues = productAttributeValues;
+    }
+
+    public Products getProduct() {
+        return product;
+    }
+
+    public void setProduct(Products product) {
+        this.product = product;
     }
 
     public Long getId() {

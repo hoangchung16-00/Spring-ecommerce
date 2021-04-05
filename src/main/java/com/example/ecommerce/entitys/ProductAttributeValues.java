@@ -13,18 +13,25 @@ public class ProductAttributeValues {
     @ManyToOne
     @JoinColumn(name = "productattributeid")
     private ProductAttributes productAttribute;
+    @OneToOne(mappedBy = "productAttributeValue")
+    private Skus sku;
 
-    @OneToMany(mappedBy = "productAttributeValue")
-    private List<ProductValues> productValues;
 
-
-    public ProductAttributeValues(String value, ProductAttributes productAttribute, List<ProductValues> productValues) {
+    public ProductAttributeValues(String value, ProductAttributes productAttribute, Skus sku) {
         this.value = value;
         this.productAttribute = productAttribute;
-        this.productValues = productValues;
+        this.sku = sku;
     }
 
     public ProductAttributeValues() {
+    }
+
+    public Skus getSku() {
+        return sku;
+    }
+
+    public void setSku(Skus sku) {
+        this.sku = sku;
     }
 
     public Long getId() {
@@ -45,14 +52,6 @@ public class ProductAttributeValues {
 
     public ProductAttributes getProductAttribute() {
         return productAttribute;
-    }
-
-    public List<ProductValues> getProductValues() {
-        return productValues;
-    }
-
-    public void setProductValues(List<ProductValues> productValues) {
-        this.productValues = productValues;
     }
 
     public void setProductAttribute(ProductAttributes productAttribute) {

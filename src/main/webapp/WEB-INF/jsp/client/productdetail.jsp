@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="input" uri="http://www.springframework.org/tags/form" %>
 
 <!-- product category -->
 <section id="aa-product-details">
@@ -39,34 +41,31 @@
                                     </div>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis animi, veritatis quae repudiandae quod nulla porro quidem, itaque quis quaerat!</p>
                                     <h4>Size</h4>
-                                    <form>
                                         <div class="aa-prod-view-size">
-                                            <c:forEach items="${productAttributeSize}" var="size">
-                                                <a href="#">${size.value}</a>
+                                            <c:forEach items="${productSizeAttribute.productAttributeValues}" var="size">
+                                                <button onclick="chooseSize(${size.id});">${size.value}</button>
                                             </c:forEach>
                                         </div>
                                         <h4>Color</h4>
-                                        <div class="aa-color-tag">
-                                            <c:forEach items="${productAttributeColor}" var="color">
-                                            <a href="#" class="aa-color-${color.value}"></a>
+                                        <div class="aa-prod-view-size">
+                                            <c:forEach items="${productColorAttribute.productAttributeValues}" var="color">
+                                            <button onclick="chooseColor(${color.id});">${color.value}</button>
                                             </c:forEach>
                                         </div>
-                                    </form>
+
                                     <div class="aa-prod-view-bottom">
-                                        <a class="aa-add-to-cart-btn" href="#">Add To Cart</a>
-                                        <a class="aa-add-to-cart-btn" href="#">Wishlist</a>
+                                        <button class="aa-add-to-cart-btn" >Add To Cart</button>
+                                        <button class="aa-add-to-cart-btn" href="#">Wishlist</button>
                                         <a class="aa-add-to-cart-btn" href="#">Compare</a>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     </div>
                     <div class="aa-product-details-bottom">
                         <ul class="nav nav-tabs" id="myTab2">
                             <li><a href="#description" data-toggle="tab">Description</a></li>
                             <li><a href="#review" data-toggle="tab">Reviews</a></li>
                         </ul>
-
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div class="tab-pane fade in active" id="description">
@@ -136,8 +135,9 @@
                                         <a href="#"><span class="fa fa-star-o"></span></a>
                                     </div>
                                     <!-- review form -->
-                                    <form action="" class="aa-review-form">
+                                    <form action="addToCart" class="aa-review-form">
                                         <div class="form-group">
+                                            <input type="hidden" name = "productid">
                                             <label for="message">Your Review</label>
                                             <textarea class="form-control" rows="3" id="message"></textarea>
                                         </div>
@@ -389,4 +389,5 @@
         </div>
     </div>
 </section>
+
 <!-- / product category -->

@@ -16,16 +16,20 @@ public class Products {
     private Subcategories subcategory;
 
     @OneToMany(mappedBy = "product")
-    private List<ProductValues> productValues;
+    private List<ProductAttributes> productAttributes;
+
+    @OneToMany(mappedBy = "product")
+    private List<SkuDetails> skuDetails;
 
     public Products() {
     }
 
-    public Products(String name, String description, Subcategories subcategory, List<ProductValues> productValues) {
+    public Products(String name, String description, Subcategories subcategory, List<ProductAttributes> productAttributes, List<SkuDetails> skuDetails) {
         this.name = name;
         this.description = description;
         this.subcategory = subcategory;
-        this.productValues = productValues;
+        this.productAttributes = productAttributes;
+        this.skuDetails = skuDetails;
     }
 
     public Products(String name, String description, Subcategories subcategory) {
@@ -34,12 +38,12 @@ public class Products {
         this.subcategory = subcategory;
     }
 
-    public List<ProductValues> getProductValues() {
-        return productValues;
+    public List<ProductAttributes> getProductValues() {
+        return productAttributes;
     }
 
-    public void setProductValues(List<ProductValues> productValues) {
-        this.productValues = productValues;
+    public void setProductValues(List<ProductAttributes> productAttributes) {
+        this.productAttributes = productAttributes;
     }
 
     public Long getId() {
