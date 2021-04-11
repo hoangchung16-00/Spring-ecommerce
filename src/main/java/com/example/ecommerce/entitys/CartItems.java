@@ -15,16 +15,16 @@ public class CartItems {
     @JoinColumn(name = "cartid")
     private Carts cart;
     private int quantity;
-    private double totalPrice;
+    private double totalprice;
 
     public CartItems() {
     }
 
-    public CartItems(SkuDetails skuDetail, Carts cart, int quantity, double totalPrice) {
+    public CartItems(SkuDetails skuDetail, Carts cart, int quantity, double totalprice) {
         this.skuDetail = skuDetail;
         this.cart = cart;
         this.quantity = quantity;
-        this.totalPrice = totalPrice;
+        this.totalprice = totalprice;
     }
 
     public Long getId() {
@@ -59,11 +59,11 @@ public class CartItems {
         this.quantity = quantity;
     }
 
-    public double getTotalPrice() {
-        return totalPrice;
+    public double getTotalprice() {
+        return totalprice;
     }
 
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
+    public void setTotalprice(double totalprice) {
+        this.totalprice = totalprice;
     }
 }

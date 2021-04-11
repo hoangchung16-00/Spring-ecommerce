@@ -13,24 +13,24 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class AjaxController extends BaseExtender{
     @GetMapping("/chooseSize")
-    public @ResponseBody String getSizeAttribute(@RequestParam("idproductattribute") Long sizeId, HttpSession session){
-        session.setAttribute("size",sizeId);
+    public @ResponseBody String getSizeAttribute(@RequestParam("value") String sizeValue, HttpSession session){
+        session.setAttribute("size",sizeValue);
         ObjectMapper mapper = new ObjectMapper();
         String ajaxResponse = "";
         try {
-            ajaxResponse = mapper.writeValueAsString(sizeId);
+            ajaxResponse = mapper.writeValueAsString(sizeValue);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
         return ajaxResponse;
     }
     @GetMapping("/chooseColor")
-    public @ResponseBody String getColorAttribute(@RequestParam("idproductattribute") Long colorId, HttpSession session){
-        session.setAttribute("color",colorId);
+    public @ResponseBody String getColorAttribute(@RequestParam("value") String colorValue, HttpSession session){
+        session.setAttribute("color",colorValue);
         ObjectMapper mapper = new ObjectMapper();
         String ajaxResponse = "";
         try {
-            ajaxResponse = mapper.writeValueAsString(colorId);
+            ajaxResponse = mapper.writeValueAsString(colorValue);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

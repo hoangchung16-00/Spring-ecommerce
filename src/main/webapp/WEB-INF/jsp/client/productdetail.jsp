@@ -43,18 +43,18 @@
                                     <h4>Size</h4>
                                         <div class="aa-prod-view-size">
                                             <c:forEach items="${productSizeAttribute.productAttributeValues}" var="size">
-                                                <button onclick="chooseSize(${size.id});">${size.value}</button>
+                                                <button onclick="chooseSize('${size.value}');">${size.value}</button>
                                             </c:forEach>
                                         </div>
                                         <h4>Color</h4>
                                         <div class="aa-prod-view-size">
                                             <c:forEach items="${productColorAttribute.productAttributeValues}" var="color">
-                                            <button onclick="chooseColor(${color.id});">${color.value}</button>
+                                            <button onclick="chooseColor('${color.value}');">${color.value}</button>
                                             </c:forEach>
                                         </div>
 
                                     <div class="aa-prod-view-bottom">
-                                        <button class="aa-add-to-cart-btn" >Add To Cart</button>
+                                        <a href="/addToCart?productId=${productDetail.id}" class="aa-add-to-cart-btn" >Add To Cart</a>
                                         <button class="aa-add-to-cart-btn" href="#">Wishlist</button>
                                         <a class="aa-add-to-cart-btn" href="#">Compare</a>
                                     </div>

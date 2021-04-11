@@ -1,13 +1,8 @@
 package com.example.ecommerce.controllers.admin;
 
 import com.example.ecommerce.entitys.Products;
-import com.example.ecommerce.entitys.Subcategories;
 import com.example.ecommerce.forms.AddProductForm;
 import com.example.ecommerce.forms.EditProductForm;
-import com.example.ecommerce.services.ProductService;
-import com.example.ecommerce.services.SubcategoriesService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
@@ -18,13 +13,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.List;
 
 @Controller
 public class CMSProductController extends BaseExtender{
+
     public static final int PAGE_SIZE = 6;
     @GetMapping("cms/product")
     public String getCMSProduct(Model model, @RequestParam(value = "page", defaultValue = "1") int page){
@@ -56,16 +48,11 @@ public class CMSProductController extends BaseExtender{
         return "cms/editproduct";
     }
     @PostMapping("cms/editproduct")
-    public String postCMSEditProduct(@Valid @ModelAttribute("editProductForm") EditProductForm editProductForm, BindingResult bindingResult, @RequestParam("imageProduct") MultipartFile imageProduct) throws IOException {
+    public String postCMSEditProduct(@Valid @ModelAttribute("editProductForm") EditProductForm editProductForm, BindingResult bindingResult) throws IOException {
         if (bindingResult.hasErrors()){
 
         }
-//        String filename = imageProduct.getOriginalFilename();
-//        Path imagePath = Paths.get("src/main/resources/static/admin/img/"+filename);
-//        Files.write(imagePath,imageProduct.getBytes());
-//        String oldFilename = productService.findById(editProductForm.getId()).getImage();
-//        Path oldImagePath = Paths.get( "src/main/resources/static/admin/img/"+oldFilename);
-//        Files.deleteIfExists(oldImagePath);
+
         productService.editProduct(editProductForm.getId(),editProductForm.getName(), editProductForm.getDescription(), subcategoriesService.findById(editProductForm.getSubcategoryid()));
         return "redirect:/cms/product";
     }
@@ -74,4 +61,6 @@ public class CMSProductController extends BaseExtender{
         productService.deleteProduct(id);
         return "redirect:/cms/product";
     }
+
+
 }

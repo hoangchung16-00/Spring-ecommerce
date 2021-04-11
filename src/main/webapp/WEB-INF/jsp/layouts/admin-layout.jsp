@@ -107,44 +107,7 @@
     <script src="/admin/js/demo/chart-pie-demo.js"></script>
     <script src="/admin/js/pagnition.js"></script>
 
-    <script type="text/javascript">
-        function chooseSize(i) {
-            var idproductattribute=i;
-            $.ajax({
-                type:"GET",
-                contentType:"application/json",
-                url:"/chooseSize",
-                data:{
-                    idproductattribute : idproductattribute
-                },
-                timeout:100000,
-                success:function (data) {
-                    console.log("SUCCESS:", data);
-                },
-                error: function (e) {
-                    console.log("ERROR: ",e);
-                }
-            });
-        }
-        function chooseColor(i) {
-            var idproductattribute=i;
-            $.ajax({
-                type:"GET",
-                contentType:"application/json",
-                url:"/chooseColor",
-                data:{
-                    idproductattribute : idproductattribute
-                },
-                timeout:100000,
-                success:function (data) {
-                    console.log("SUCCESS:", data);
-                },
-                error: function (e) {
-                    console.log("ERROR: ",e);
-                }
-            });
-        }
-    </script>
+
 
 </body>
 

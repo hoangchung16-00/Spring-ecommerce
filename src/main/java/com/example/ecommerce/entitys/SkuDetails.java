@@ -9,9 +9,10 @@ public class SkuDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany(mappedBy = "skuDetail")
+    @OneToMany(mappedBy = "skuDetail",fetch = FetchType.EAGER)
     private List<Skus> skus;
     private int quantity;
+    private String skucode;
     private double price;
     private String image;
     @OneToOne(mappedBy = "skuDetail")
@@ -20,9 +21,10 @@ public class SkuDetails {
     @JoinColumn(name = "productid")
     private Products product;
 
-    public SkuDetails(List<Skus> skus, int quantity, double price, String image, CartItems cartItem, Products product) {
+    public SkuDetails(List<Skus> skus, int quantity, String skucode, double price, String image, CartItems cartItem, Products product) {
         this.skus = skus;
         this.quantity = quantity;
+        this.skucode = skucode;
         this.price = price;
         this.image = image;
         this.cartItem = cartItem;
@@ -30,6 +32,30 @@ public class SkuDetails {
     }
 
     public SkuDetails() {
+    }
+
+    public String getSkucode() {
+        return skucode;
+    }
+
+    public void setSkucode(String skucode) {
+        this.skucode = skucode;
+    }
+
+    public CartItems getCartItem() {
+        return cartItem;
+    }
+
+    public void setCartItem(CartItems cartItem) {
+        this.cartItem = cartItem;
+    }
+
+    public Products getProduct() {
+        return product;
+    }
+
+    public void setProduct(Products product) {
+        this.product = product;
     }
 
     public Long getId() {

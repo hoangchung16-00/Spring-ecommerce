@@ -31,6 +31,15 @@
     <definition name="cms/product" extends="admin.definition">
         <put-attribute name="body" value="/WEB-INF/jsp/admin/product.jsp"/>
     </definition>
+    <definition name="cms/product_detail" extends="admin.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/product_detail.jsp"/>
+    </definition>
+    <definition name="cms/skudetail" extends="admin.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/skudetail.jsp"/>
+    </definition>
+    <definition name="cms/addskudetail" extends="admin.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/addskudetail.jsp"/>
+    </definition>
     <definition name="cms/editcategory" extends="admin.definition">
         <put-attribute name="body" value="/WEB-INF/jsp/admin/editcategory.jsp"/>
     </definition>

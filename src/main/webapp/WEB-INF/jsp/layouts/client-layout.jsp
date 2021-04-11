@@ -115,6 +115,43 @@
 <script type="text/javascript" src="/client/js/nouislider.js"></script>
 <!-- Custom js -->
 <script src="/client/js/custom.js"></script>
-
+<script type="text/javascript">
+    function chooseSize(i) {
+        var value=i;
+        $.ajax({
+            type:"GET",
+            contentType:"application/json",
+            url:"/chooseSize",
+            data:{
+                value : value
+            },
+            timeout:100000,
+            success:function (data) {
+                console.log("SUCCESS:", data);
+            },
+            error: function (e) {
+                console.log("ERROR: ",e);
+            }
+        });
+    }
+    function chooseColor(i) {
+        var value=i;
+        $.ajax({
+            type:"GET",
+            contentType:"application/json",
+            url:"/chooseColor",
+            data:{
+                value : value
+            },
+            timeout:100000,
+            success:function (data) {
+                console.log("SUCCESS:", data);
+            },
+            error: function (e) {
+                console.log("ERROR: ",e);
+            }
+        });
+    }
+</script>
 </body>
 </html>
