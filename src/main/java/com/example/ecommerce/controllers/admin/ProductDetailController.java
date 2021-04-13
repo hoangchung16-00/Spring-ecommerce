@@ -4,6 +4,7 @@ import com.example.ecommerce.forms.AddProductDetailForm;
 import com.example.ecommerce.forms.EditProductForm;
 import com.example.ecommerce.repositories.ProductAttributeValueRepository;
 import com.example.ecommerce.services.ProductAttributeValueService;
+import com.example.ecommerce.services.ProductService;
 import com.example.ecommerce.services.SkuDetailService;
 import com.example.ecommerce.services.SkusService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,8 @@ public class ProductDetailController {
     @Autowired
     private SkusService skusService;
     @Autowired
+    private ProductService productService;
+    @Autowired
     private ProductAttributeValueService productAttributeValueService;
     @GetMapping("cms/product/detail/{id}")
     public String getCMSProductDetail(@PathVariable("id") Long id, Model model){
@@ -37,23 +40,31 @@ public class ProductDetailController {
     public String getAddSkuDetail(final Model model,@RequestParam(name = "productId",required = false) Long productId){
         model.addAttribute("sizes",productAttributeValueService.getSkuSizesByProductId(productId));
         model.addAttribute("colors",productAttributeValueService.getSkuColorsByProductId(productId));
-        model.addAttribute("productId",productId);
+
         model.addAttribute("addProductDetailForm", new AddProductDetailForm());
+        model.addAttribute("productId",productId);
         return "cms/addskudetail";
     }
-    @PostMapping("cms/addskudetail")
-    public String postAddSkuDetail(Model model,@Valid @ModelAttribute("addProductDetailForm") AddProductDetailForm addProductDetailForm,BindingResult bindingResult, @RequestParam("imageSkuDetail") MultipartFile imageSkuDetail,@RequestParam(name = "productId",required = false) Long productId) throws IOException {
+    @PostMapping("cms/addskudetail/{productId}")
+    public String postAddSkuDetail(Model model,@Valid @ModelAttribute("addProductDetailForm") AddProductDetailForm addProductDetailForm,
+                                   BindingResult bindingResult, @RequestParam("imageSkuDetail") MultipartFile imageSkuDetail,
+                                   @PathVariable("productId") Long productId) throws IOException {
+        model.addAttribute("productId", productId);
+        model.addAttribute("sizes",productAttributeValueService.getSkuSizesByProductId(productId));
+        model.addAttribute("colors",productAttributeValueService.getSkuColorsByProductId(productId));
         if(bindingResult.hasErrors()){
             return "cms/addskudetail";
         }
-        if(skuDetailService.getSkus(productId,addProductDetailForm.getSizeId(),addProductDetailForm.getColorId()).size()==2){
-            return "redirect:/cms/addskudetail";
+        if(skusService.getColorByProductId(productId,addProductDetailForm.getColorId())!=null&&skusService.getSizeByProductId(productId,addProductDetailForm.getSizeId())!=null){
+            return "cms/addskudetail";
         } else {
-           /* String filename = imageSkuDetail.getOriginalFilename();
+            String filename = addProductDetailForm.getSkuCode()+imageSkuDetail.getOriginalFilename();
             Path imagePath = Paths.get("src/main/resources/static/admin/img/" + filename);
-            Files.write(imagePath, imageSkuDetail.getBytes());*/
-
+            Files.write(imagePath, imageSkuDetail.getBytes());
+            skuDetailService.addSkuDetail(addProductDetailForm.getQuantity(),addProductDetailForm.getSkuCode(),addProductDetailForm.getPrice(),filename,productService.findById(productId));
+            skusService.addSku(productAttributeValueService.findById(addProductDetailForm.getSizeId()),skuDetailService.findBySkuCode(addProductDetailForm.getSkuCode()));
+            skusService.addSku(productAttributeValueService.findById(addProductDetailForm.getColorId()),skuDetailService.findBySkuCode(addProductDetailForm.getSkuCode()));
         }
-        return "redirect:/cms/product_detail";
+        return "redirect:/cms/product/detail/"+productId;
     }
 }

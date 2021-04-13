@@ -5,22 +5,18 @@ import javax.validation.constraints.NotBlank;
 public class AddProductDetailForm {
     @NotBlank(message = "abc")
     private String skuCode;
-    private Long productId;
     private Long sizeId;
     private Long colorId;
-    private String image;
     private double price;
     private int quantity;
 
     public AddProductDetailForm() {
     }
 
-    public AddProductDetailForm(@NotBlank(message = "abc") String skuCode, Long productId, Long sizeId, Long colorId, String image, double price, int quantity) {
+    public AddProductDetailForm(@NotBlank(message = "abc") String skuCode, Long sizeId, Long colorId, double price, int quantity) {
         this.skuCode = skuCode;
-        this.productId = productId;
         this.sizeId = sizeId;
         this.colorId = colorId;
-        this.image = image;
         this.price = price;
         this.quantity = quantity;
     }
@@ -33,13 +29,6 @@ public class AddProductDetailForm {
         this.skuCode = skuCode;
     }
 
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
 
     public Long getSizeId() {
         return sizeId;
@@ -57,13 +46,6 @@ public class AddProductDetailForm {
         this.colorId = colorId;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
 
     public double getPrice() {
         return price;

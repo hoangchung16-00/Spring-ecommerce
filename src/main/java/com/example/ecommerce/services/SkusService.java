@@ -1,5 +1,6 @@
 package com.example.ecommerce.services;
 
+import com.example.ecommerce.entitys.ProductAttributeValues;
 import com.example.ecommerce.entitys.SkuDetails;
 import com.example.ecommerce.entitys.Skus;
 import com.example.ecommerce.repositories.SkuDetailRepository;
@@ -29,13 +30,16 @@ public class SkusService {
     public List<Skus> getSkus(Long productId,String size,String color){
         return skuRepository.getSkus(productId,size,color);
     }
+   @Transactional
+    public Skus getColorByProductId(Long productId,Long colorId){
+        return skuRepository.getColorByProductId(productId,"color",colorId);
+   }
     @Transactional
-    public Skus getSkuSize(Long skuDetailId){
-        return skuRepository.getSkuSize(skuDetailId,"size");
+    public Skus getSizeByProductId(Long productId,Long colorId){
+        return skuRepository.getSizeByProductId(productId,"size",colorId);
     }
     @Transactional
-    public Skus getSkuColor(Long skuDetailId){
-        return skuRepository.getSkuColor(skuDetailId,"color");
+    public void addSku(ProductAttributeValues productAttributeValue, SkuDetails skuDetail){
+        skuRepository.save(new Skus(productAttributeValue,skuDetail));
     }
-
 }

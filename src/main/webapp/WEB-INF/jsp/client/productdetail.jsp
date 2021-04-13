@@ -42,13 +42,13 @@
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis animi, veritatis quae repudiandae quod nulla porro quidem, itaque quis quaerat!</p>
                                     <h4>Size</h4>
                                         <div class="aa-prod-view-size">
-                                            <c:forEach items="${productSizeAttribute.productAttributeValues}" var="size">
+                                            <c:forEach items="${sizes}" var="size">
                                                 <button onclick="chooseSize('${size.value}');">${size.value}</button>
                                             </c:forEach>
                                         </div>
                                         <h4>Color</h4>
                                         <div class="aa-prod-view-size">
-                                            <c:forEach items="${productColorAttribute.productAttributeValues}" var="color">
+                                            <c:forEach items="${colors}" var="color">
                                             <button onclick="chooseColor('${color.value}');">${color.value}</button>
                                             </c:forEach>
                                         </div>

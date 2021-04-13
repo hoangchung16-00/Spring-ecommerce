@@ -19,8 +19,9 @@ public class Skus {
     private SkuDetails skuDetail;
 
 
-    public Skus(ProductAttributeValues productAttributeValue) {
+    public Skus(ProductAttributeValues productAttributeValue, SkuDetails skuDetail) {
         this.productAttributeValue = productAttributeValue;
+        this.skuDetail = skuDetail;
     }
 
     public Skus() {

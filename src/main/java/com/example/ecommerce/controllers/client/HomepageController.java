@@ -2,6 +2,7 @@ package com.example.ecommerce.controllers.client;
 
 import com.example.ecommerce.services.CategoriesService;
 import com.example.ecommerce.services.ProductAttributeService;
+import com.example.ecommerce.services.ProductAttributeValueService;
 import com.fasterxml.jackson.databind.ser.Serializers;
 import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class HomepageController extends BaseExtender {
     @Autowired
-    ProductAttributeService productAttributeService;
+    private ProductAttributeService productAttributeService;
+    @Autowired
+    private ProductAttributeValueService productAttributeValueService;
 public static final int PAGE_SIZE = 2;
     @GetMapping("/")
     public String getHomepage(final Model model){
@@ -32,11 +35,9 @@ public static final int PAGE_SIZE = 2;
     }
     @GetMapping("/productdetail/{id}")
     public String getProductDetail(@PathVariable("id") Long id, Model model){
-//        model.addAttribute("productAttributeColor",productService.getProductAttributeColorByProductId(id));
         model.addAttribute("productDetail", productService.findById(id));
-//        model.addAttribute("productValue",productService.getSumQuantity(productService.findById(id).getId()));
-        model.addAttribute("productSizeAttribute",productAttributeService.getSizeAttribute(id));
-        model.addAttribute("productColorAttribute",productAttributeService.getColorAttribute(id));
+        model.addAttribute("sizes",productAttributeValueService.getSkuSizesByProductId(id));
+        model.addAttribute("colors",productAttributeValueService.getSkuColorsByProductId(id));
         return "productdetail";
     }
 

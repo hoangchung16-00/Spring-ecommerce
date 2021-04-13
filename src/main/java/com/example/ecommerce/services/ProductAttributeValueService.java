@@ -20,4 +20,8 @@ public class ProductAttributeValueService {
     public List<ProductAttributeValues> getSkuColorsByProductId(Long productId){
         return productAttributeValueRepository.getSkuColorsByProductId(productId,"color");
     }
+    @Transactional
+    public ProductAttributeValues findById(Long id){
+        return productAttributeValueRepository.findById(id).get();
+    }
 }

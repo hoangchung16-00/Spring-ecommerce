@@ -10,7 +10,7 @@ public class ProductAttributes {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @OneToMany(mappedBy = "productAttribute")
+    @OneToMany(mappedBy = "productAttribute",fetch = FetchType.EAGER)
     private List<ProductAttributeValues> productAttributeValues;
     @ManyToOne
     @JoinColumn(name = "productid")

@@ -10,7 +10,7 @@ public class Carts {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Double total;
-    @OneToMany(mappedBy = "cart")
+    @OneToMany(mappedBy = "cart",fetch = FetchType.EAGER)
     private List<CartItems> cartItems;
     @OneToOne
     @JoinColumn(name = "userid")

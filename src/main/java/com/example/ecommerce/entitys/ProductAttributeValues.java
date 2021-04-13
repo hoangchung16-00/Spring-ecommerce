@@ -13,7 +13,7 @@ public class ProductAttributeValues {
     @ManyToOne
     @JoinColumn(name = "productattributeid")
     private ProductAttributes productAttribute;
-    @OneToOne(mappedBy = "productAttributeValue")
+    @OneToOne(mappedBy = "productAttributeValue",fetch = FetchType.EAGER)
     private Skus sku;
 
 

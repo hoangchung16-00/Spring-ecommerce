@@ -1,5 +1,7 @@
 package com.example.ecommerce.services;
 
+import com.example.ecommerce.entitys.CartItems;
+import com.example.ecommerce.entitys.Products;
 import com.example.ecommerce.entitys.SkuDetails;
 import com.example.ecommerce.entitys.Skus;
 import com.example.ecommerce.model.ProductDetail;
@@ -42,7 +44,11 @@ public class SkuDetailService {
         return skuDetailRepository.getSkuColor(skuDetailId,"color",productId);
     }
     @Transactional
-    public List<Skus> getSkus(Long productId,Long sizeId,Long colorId){
-        return skuDetailRepository.getSkus(productId,sizeId,colorId);
+    public void addSkuDetail(int quantity, String skucode, double price, String image, Products product){
+        skuDetailRepository.save(new SkuDetails(quantity,skucode,price,image,product));
+    }
+    @Transactional
+    public SkuDetails findBySkuCode(String skuCode){
+        return skuDetailRepository.findSkuDetailsBySkucode(skuCode);
     }
 }

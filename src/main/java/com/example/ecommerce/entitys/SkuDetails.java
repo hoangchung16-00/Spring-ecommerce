@@ -15,7 +15,7 @@ public class SkuDetails {
     private String skucode;
     private double price;
     private String image;
-    @OneToOne(mappedBy = "skuDetail")
+    @OneToOne(mappedBy = "skuDetail",fetch = FetchType.LAZY)
     private CartItems cartItem;
     @ManyToOne
     @JoinColumn(name = "productid")
@@ -28,6 +28,14 @@ public class SkuDetails {
         this.price = price;
         this.image = image;
         this.cartItem = cartItem;
+        this.product = product;
+    }
+
+    public SkuDetails(int quantity, String skucode, double price, String image, Products product) {
+        this.quantity = quantity;
+        this.skucode = skucode;
+        this.price = price;
+        this.image = image;
         this.product = product;
     }
 

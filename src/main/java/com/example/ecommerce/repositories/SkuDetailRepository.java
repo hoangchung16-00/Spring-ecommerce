@@ -19,6 +19,5 @@ public interface SkuDetailRepository extends JpaRepository<SkuDetails,Long> {
     @Query("select s from SkuDetails sd,Skus s where sd.id=?1 and s.skuDetail.id=sd.id and s.productAttributeValue.productAttribute.name=?2 and sd.product.id=?3")
     Skus getSkuColor(Long skuDetailId,String color,Long productId);
 
-    @Query("select sd.skus from SkuDetails sd,Skus s where sd.product.id=?1 and s.skuDetail.id=sd.id and (s.productAttributeValue.id=?1 or s.productAttributeValue.id=?2)")
-    List<Skus> getSkus(Long productId,Long sizeId,Long colorId);
+    SkuDetails findSkuDetailsBySkucode(String skuCode);
 }

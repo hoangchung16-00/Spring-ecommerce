@@ -18,7 +18,7 @@ public class Products {
     @OneToMany(mappedBy = "product")
     private List<ProductAttributes> productAttributes;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     private List<SkuDetails> skuDetails;
 
     public Products() {

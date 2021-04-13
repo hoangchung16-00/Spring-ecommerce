@@ -36,9 +36,7 @@
                 <h2 class="title">Add Product Detail</h2>
             </div>
             <div class="card-body">
-                <form:form method="POST" action="/cms/addskudetail?productId=${productId}" modelAttribute="addProductDetailForm" enctype="multipart/form-data">
-                    <form:hidden class="input--style-5" path="productId"/>
-                    <form:errors path="productId"/>
+                <form:form method="POST" action="/cms/addskudetail/${productId}" modelAttribute="addProductDetailForm" enctype="multipart/form-data">
                     <div class="form-row">
                         <div class="name">Code</div>
                         <div class="value">
