@@ -21,7 +21,7 @@
                                     </thead>
                                     <tbody>
                                     <tr>
-                                        <td><a href="#"><img src="img/man/polo-shirt-2.png" alt="img"></a></td>
+                                        <td><a href="#"><img src="../../../../resources/static/client/img/man/polo-shirt-2.png" alt="img"></a></td>
                                         <td><a class="aa-cart-title" href="#">Polo T-Shirt</a></td>
                                         <td>$150</td>
                                         <td><input class="aa-cart-quantity" type="number" value="1"></td>

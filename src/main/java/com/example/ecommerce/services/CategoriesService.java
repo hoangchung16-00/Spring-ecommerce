@@ -21,10 +21,6 @@ public class CategoriesService {
         return categoriesRepository.getCategories(pageable);
     }
     @Transactional
-    public Categories findBySlug(String categorySlug){
-        return categoriesRepository.findBySlug(categorySlug);
-    }
-    @Transactional
     public Categories findById(Long id){
         return categoriesRepository.findById(id).get();
     }

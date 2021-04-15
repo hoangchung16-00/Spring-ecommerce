@@ -20,17 +20,11 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-public class CMSSubcategoryController {
-
+public class CMSSubcategoryController extends BaseExtender {
     private static final int PAGE_SIZE=6;
-    @Autowired
-    private CategoriesService categoriesService;
-    @Autowired
-    private SubcategoriesService subcategoriesService;
     @GetMapping("cms/subcategory")
     public String getCMSSubcategory(final Model model, @RequestParam(value = "page", defaultValue = "1") int page){
         Pageable pageable= PageRequest.of(page-1,PAGE_SIZE);
-        model.addAttribute("subcategories",subcategoriesService.getSubcategories());
         model.addAttribute("subcategories",subcategoriesService.getSubCategories(pageable));
         model.addAttribute("pageSize",(subcategoriesService.getTotalSubCategory()/PAGE_SIZE)+1);
         return "cms/subcategory";
@@ -47,7 +41,6 @@ public class CMSSubcategoryController {
     @GetMapping("cms/addsubcategory")
     public String getAddSubCategory(Model model){
         List<Categories> categories = categoriesService.findAll();
-        model.addAttribute("categories",categories);
         model.addAttribute("addSubCategoryForm",new AddSubCategoryForm());
         return "cms/addsubcategory";
     }
@@ -61,7 +54,6 @@ public class CMSSubcategoryController {
     @GetMapping("cms/editsubcategory/{id}")
     public String getEditSubCategory(@PathVariable("id") Long id,final Model model){
         Subcategories subcategories = subcategoriesService.findById(id);
-        model.addAttribute("categories", categoriesService.findAll());
         if(subcategories==null){
 
         } else {

@@ -12,24 +12,24 @@
     <title>Daily Shop | Home</title>
 
     <!-- Font awesome -->
-    <link href="/css/font-awesome.css" rel="stylesheet">
+    <link href="/client/css/font-awesome.css" rel="stylesheet">
     <!-- Bootstrap -->
-    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/client/css/bootstrap.css" rel="stylesheet">
     <!-- SmartMenus jQuery Bootstrap Addon CSS -->
-    <link href="/css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
+    <link href="/client/css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
     <!-- Product view slider -->
-    <link rel="stylesheet" type="text/css" href="/css/jquery.simpleLens.css">
+    <link rel="stylesheet" type="text/css" href="/client/css/jquery.simpleLens.css">
     <!-- slick slider -->
-    <link rel="stylesheet" type="text/css" href="/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="/client/css/slick.css">
     <!-- price picker slider -->
-    <link rel="stylesheet" type="text/css" href="/css/nouislider.css">
+    <link rel="stylesheet" type="text/css" href="/client/css/nouislider.css">
     <!-- Theme color -->
-    <link id="switcher" href="/css/theme-color/default-theme.css" rel="stylesheet">
+    <link id="switcher" href="/client/css/theme-color/default-theme.css" rel="stylesheet">
     <!-- Top Slider CSS -->
-    <link href="/css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
+    <link href="/client/css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
 
     <!-- Main style sheet -->
-    <link href="/css/style.css" rel="stylesheet">
+    <link href="/client/css/style.css" rel="stylesheet">
 
     <!-- Google Font -->
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
@@ -44,25 +44,25 @@
     <![endif]-->
 
     <!-- Font awesome -->
-    <link href="/css/font-awesome.css" rel="stylesheet">
+    <link href="/client/css/font-awesome.css" rel="stylesheet">
     <!-- Bootstrap -->
-    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/client/css/bootstrap.css" rel="stylesheet">
     <!-- SmartMenus jQuery Bootstrap Addon CSS -->
-    <link href="/css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
+    <link href="/client/css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
     <!-- Product view slider -->
-    <link rel="stylesheet" type="text/css" href="/css/jquery.simpleLens.css">
+    <link rel="stylesheet" type="text/css" href="/client/css/jquery.simpleLens.css">
     <!-- slick slider -->
-    <link rel="stylesheet" type="text/css" href="/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="/client/css/slick.css">
     <!-- price picker slider -->
-    <link rel="stylesheet" type="text/css" href="/css/nouislider.css">
+    <link rel="stylesheet" type="text/css" href="/client/css/nouislider.css">
     <!-- Theme color -->
-    <link id="switcher" href="/css/theme-color/default-theme.css" rel="stylesheet">
+    <link id="switcher" href="/client/css/theme-color/default-theme.css" rel="stylesheet">
     <!-- <link id="switcher" href="css/theme-color/bridge-theme.css" rel="stylesheet"> -->
     <!-- Top Slider CSS -->
-    <link href="/css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
+    <link href="/client/css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
 
     <!-- Main style sheet -->
-    <link href="/css/style.css" rel="stylesheet">
+    <link href="/client/css/style.css" rel="stylesheet">
 
     <!-- Google Font -->
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
@@ -98,23 +98,60 @@
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="/js/bootstrap.js"></script>
+<script src="/client/js/bootstrap.js"></script>
 <!-- SmartMenus jQuery plugin -->
-<script type="text/javascript" src="/js/jquery.smartmenus.js"></script>
+<script type="text/javascript" src="/client/js/jquery.smartmenus.js"></script>
 <!-- SmartMenus jQuery Bootstrap Addon -->
-<script type="text/javascript" src="/js/jquery.smartmenus.bootstrap.js"></script>
+<script type="text/javascript" src="/client/js/jquery.smartmenus.bootstrap.js"></script>
 <!-- To Slider JS -->
-<script src="/js/sequence.js"></script>
-<script src="/js/sequence-theme.modern-slide-in.js"></script>
+<script src="/client/js/sequence.js"></script>
+<script src="/client/js/sequence-theme.modern-slide-in.js"></script>
 <!-- Product view slider -->
-<script type="text/javascript" src="/js/jquery.simpleGallery.js"></script>
-<script type="text/javascript" src="/js/jquery.simpleLens.js"></script>
+<script type="text/javascript" src="/client/js/jquery.simpleGallery.js"></script>
+<script type="text/javascript" src="/client/js/jquery.simpleLens.js"></script>
 <!-- slick slider -->
-<script type="text/javascript" src="/js/slick.js"></script>
+<script type="text/javascript" src="/client/js/slick.js"></script>
 <!-- Price picker slider -->
-<script type="text/javascript" src="/js/nouislider.js"></script>
+<script type="text/javascript" src="/client/js/nouislider.js"></script>
 <!-- Custom js -->
-<script src="/js/custom.js"></script>
-
+<script src="/client/js/custom.js"></script>
+<script type="text/javascript">
+    function chooseSize(i) {
+        var value=i;
+        $.ajax({
+            type:"GET",
+            contentType:"application/json",
+            url:"/chooseSize",
+            data:{
+                value : value
+            },
+            timeout:100000,
+            success:function (data) {
+                console.log("SUCCESS:", data);
+            },
+            error: function (e) {
+                console.log("ERROR: ",e);
+            }
+        });
+    }
+    function chooseColor(i) {
+        var value=i;
+        $.ajax({
+            type:"GET",
+            contentType:"application/json",
+            url:"/chooseColor",
+            data:{
+                value : value
+            },
+            timeout:100000,
+            success:function (data) {
+                console.log("SUCCESS:", data);
+            },
+            error: function (e) {
+                console.log("ERROR: ",e);
+            }
+        });
+    }
+</script>
 </body>
 </html>

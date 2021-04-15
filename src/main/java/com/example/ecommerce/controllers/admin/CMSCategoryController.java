@@ -15,10 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @Controller
-public class CMSCategoryController {
+public class CMSCategoryController extends BaseExtender{
     private static final int PAGE_SIZE=6;
-    @Autowired
-    private CategoriesService categoriesService;
     @GetMapping("cms/category")
     public String getCMSCategory(final Model model, @RequestParam(value = "page",defaultValue = "1") int page){
         Pageable pageable= PageRequest.of(page-1,PAGE_SIZE);
@@ -59,7 +57,7 @@ public class CMSCategoryController {
         return "cms/addcategory";
     }
     @PostMapping("cms/addcategory")
-    public String postAddCategory(@ModelAttribute("addCategoryForm") AddCategoryForm addCategoryForm, Model model){
+    public String postAddCategory(@ModelAttribute("addCategoryForm") AddCategoryForm addCategoryForm){
         categoriesService.addCategory(addCategoryForm.getName(),addCategoryForm.getSorting());
         return "redirect:/cms/category";
     }

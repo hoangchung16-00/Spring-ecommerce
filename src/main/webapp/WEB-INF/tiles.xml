@@ -3,6 +3,10 @@
         "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
+    <!--admin-login-->
+    <definition name="login"
+                template="/WEB-INF/jsp/login.jsp">
+    </definition>
     <!-- Base Define -->
     <definition name="client.definition"
                 template="/WEB-INF/jsp/layouts/client-layout.jsp">
@@ -31,6 +35,16 @@
     <definition name="cms/product" extends="admin.definition">
         <put-attribute name="body" value="/WEB-INF/jsp/admin/product.jsp"/>
     </definition>
+    <definition name="cms/product_detail" extends="admin.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/product_detail.jsp"/>
+    </definition>
+    <definition name="cms/skudetail" extends="admin.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/skudetail.jsp"/>
+    </definition>
+    <definition name="cms/addskudetail" extends="admin.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/addskudetail.jsp"/>
+    </definition>
+
     <definition name="cms/editcategory" extends="admin.definition">
         <put-attribute name="body" value="/WEB-INF/jsp/admin/editcategory.jsp"/>
     </definition>
@@ -42,6 +56,12 @@
     </definition>
     <definition name="cms/addsubcategory" extends="admin.definition">
         <put-attribute name="body" value="/WEB-INF/jsp/admin/addsubcategory.jsp"/>
+    </definition>
+    <definition name="cms/addproduct" extends="admin.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/addproduct.jsp"/>
+    </definition>
+    <definition name="cms/editproduct" extends="admin.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/editproduct.jsp"/>
     </definition>
 
     <definition name="index" extends="client.definition">

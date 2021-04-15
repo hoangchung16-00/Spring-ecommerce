@@ -33,26 +33,26 @@
                     </div>
                     <div class="aa-product-catg-body">
                         <ul class="aa-product-catg">
-                            <c:forEach items="${products}" var="product">
-                            <!-- start single product item -->
+                            <c:forEach items="${productsBySlug}" var="product">
+                                <!-- start single product item -->
                                 <li>
-                                <figure>
-                                    <a class="aa-product-img" href="/productdetail/${product.id}"><img src="/img/women/girl-1.png" alt="polo shirt img"></a>
-                                    <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
-                                    <figcaption>
-                                        <h4 class="aa-product-title"><a href="#">${product.name}</a></h4>
-                                        <span class="aa-product-price">Price</span><span class="aa-product-price"><del>$65.50</del></span>
-                                        <p class="aa-product-descrip">${product.description}</p>
-                                    </figcaption>
-                                </figure>
-                                <div class="aa-product-hvr-content">
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
-                                    <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal"><span class="fa fa-search"></span></a>
-                                </div>
-                                <!-- product badge -->
-                                <span class="aa-badge aa-sale" href="#">SALE!</span>
-                            </li>
+                                    <figure>
+                                        <a class="aa-product-img" href="/productdetail/${product.id}"><%--<img src="/admin/img/${product.image}">--%></a>
+                                        <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
+                                        <figcaption>
+                                            <h4 class="aa-product-title"><a href="/productdetail/${product.id}">${product.name}</a></h4>
+                                            <span class="aa-product-price">Price</span><span class="aa-product-price"><del>$65.50</del></span>
+                                            <p class="aa-product-descrip">${product.description}</p>
+                                        </figcaption>
+                                    </figure>
+                                    <div class="aa-product-hvr-content">
+                                        <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
+                                        <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
+                                        <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal"><span class="fa fa-search"></span></a>
+                                    </div>
+                                    <!-- product badge -->
+                                    <span class="aa-badge aa-sale" href="#">SALE!</span>
+                                </li>
                             </c:forEach>
                         </ul>
                         <!-- quick view modal -->
@@ -69,7 +69,7 @@
                                                         <div class="simpleLens-container">
                                                             <div class="simpleLens-big-image-container">
                                                                 <a class="simpleLens-lens-image" data-lens-image="img/view-slider/large/polo-shirt-1.png">
-                                                                    <img src="/img/view-slider/medium/polo-shirt-1.png" class="simpleLens-big-image">
+                                                                    <img src=" /client/img/view-slider/medium/polo-shirt-1.png" class="simpleLens-big-image">
                                                                 </a>
                                                             </div>
                                                         </div>
@@ -77,18 +77,18 @@
                                                             <a href="#" class="simpleLens-thumbnail-wrapper"
                                                                data-lens-image="/img/view-slider/large/polo-shirt-1.png"
                                                                data-big-image="/img/view-slider/medium/polo-shirt-1.png">
-                                                                <img src="/img/view-slider/thumbnail/polo-shirt-1.png">
+                                                                <img src=" /client/img/view-slider/thumbnail/polo-shirt-1.png">
                                                             </a>
                                                             <a href="#" class="simpleLens-thumbnail-wrapper"
                                                                data-lens-image="/img/view-slider/large/polo-shirt-3.png"
                                                                data-big-image="/img/view-slider/medium/polo-shirt-3.png">
-                                                                <img src="/img/view-slider/thumbnail/polo-shirt-3.png">
+                                                                <img src=" /client/img/view-slider/thumbnail/polo-shirt-3.png">
                                                             </a>
 
                                                             <a href="#" class="simpleLens-thumbnail-wrapper"
                                                                data-lens-image="/img/view-slider/large/polo-shirt-4.png"
                                                                data-big-image="/img/view-slider/medium/polo-shirt-4.png">
-                                                                <img src="/img/view-slider/thumbnail/polo-shirt-4.png">
+                                                                <img src=" /client/img/view-slider/thumbnail/polo-shirt-4.png">
                                                             </a>
                                                         </div>
                                                     </div>
@@ -222,21 +222,21 @@
                         <div class="aa-recently-views">
                             <ul>
                                 <li>
-                                    <a href="#" class="aa-cartbox-img"><img alt="img" src="img/woman-small-2.jpg"></a>
+                                    <a href="#" class="aa-cartbox-img"><img alt="img" src=" /client/img/woman-small-2.jpg"></a>
                                     <div class="aa-cartbox-info">
                                         <h4><a href="#">Product Name</a></h4>
                                         <p>1 x $250</p>
                                     </div>
                                 </li>
                                 <li>
-                                    <a href="#" class="aa-cartbox-img"><img alt="img" src="/img/woman-small-1.jpg"></a>
+                                    <a href="#" class="aa-cartbox-img"><img alt="img" src=" /client/img/woman-small-1.jpg"></a>
                                     <div class="aa-cartbox-info">
                                         <h4><a href="#">Product Name</a></h4>
                                         <p>1 x $250</p>
                                     </div>
                                 </li>
                                 <li>
-                                    <a href="#" class="aa-cartbox-img"><img alt="img" src="/img/woman-small-2.jpg"></a>
+                                    <a href="#" class="aa-cartbox-img"><img alt="img" src=" /client/img/woman-small-2.jpg"></a>
                                     <div class="aa-cartbox-info">
                                         <h4><a href="#">Product Name</a></h4>
                                         <p>1 x $250</p>
@@ -251,21 +251,21 @@
                         <div class="aa-recently-views">
                             <ul>
                                 <li>
-                                    <a href="#" class="aa-cartbox-img"><img alt="img" src="/img/woman-small-2.jpg"></a>
+                                    <a href="#" class="aa-cartbox-img"><img alt="img" src=" /client/img/woman-small-2.jpg"></a>
                                     <div class="aa-cartbox-info">
                                         <h4><a href="#">Product Name</a></h4>
                                         <p>1 x $250</p>
                                     </div>
                                 </li>
                                 <li>
-                                    <a href="#" class="aa-cartbox-img"><img alt="img" src="/img/woman-small-1.jpg"></a>
+                                    <a href="#" class="aa-cartbox-img"><img alt="img" src=" /client/img/woman-small-1.jpg"></a>
                                     <div class="aa-cartbox-info">
                                         <h4><a href="#">Product Name</a></h4>
                                         <p>1 x $250</p>
                                     </div>
                                 </li>
                                 <li>
-                                    <a href="#" class="aa-cartbox-img"><img alt="img" src="/img/woman-small-2.jpg"></a>
+                                    <a href="#" class="aa-cartbox-img"><img alt="img" src=" /client/img/woman-small-2.jpg"></a>
                                     <div class="aa-cartbox-info">
                                         <h4><a href="#">Product Name</a></h4>
                                         <p>1 x $250</p>

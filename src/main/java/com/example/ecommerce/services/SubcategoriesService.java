@@ -62,4 +62,8 @@ public class SubcategoriesService {
         subcategories.setCategory(categoriesRepository.findById(categoryid).get());
         subcategoriesRepository.save(subcategories);
     }
+    @Transactional
+    public List<Subcategories> findAll(){
+        return subcategoriesRepository.findAll();
+    }
 }
