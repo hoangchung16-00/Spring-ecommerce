@@ -60,7 +60,7 @@ public class Users {
         this.name = name;
     }
 
-    public boolean isIsadmin() {
+    public boolean getIsadmin() {
         return isadmin;
     }
 

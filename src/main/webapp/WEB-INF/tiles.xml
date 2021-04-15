@@ -3,6 +3,10 @@
         "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
+    <!--admin-login-->
+    <definition name="login"
+                template="/WEB-INF/jsp/login.jsp">
+    </definition>
     <!-- Base Define -->
     <definition name="client.definition"
                 template="/WEB-INF/jsp/layouts/client-layout.jsp">
@@ -40,6 +44,7 @@
     <definition name="cms/addskudetail" extends="admin.definition">
         <put-attribute name="body" value="/WEB-INF/jsp/admin/addskudetail.jsp"/>
     </definition>
+
     <definition name="cms/editcategory" extends="admin.definition">
         <put-attribute name="body" value="/WEB-INF/jsp/admin/editcategory.jsp"/>
     </definition>
