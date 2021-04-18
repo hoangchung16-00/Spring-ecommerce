@@ -1,4 +1,4 @@
-package com.example.ecommerce.entitys;
+package com.example.ecommerce.entities;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,7 +15,7 @@ public class Products {
     @JoinColumn(name = "subcategoryid")
     private Subcategories subcategory;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product",fetch = FetchType.LAZY)
     private List<ProductAttributes> productAttributes;
 
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)

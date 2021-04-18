@@ -1,4 +1,4 @@
-package com.example.ecommerce.entitys;
+package com.example.ecommerce.entities;
 
 import javax.persistence.*;
 
@@ -13,7 +13,7 @@ public class Users {
     private String name;
     private boolean isadmin;
     private String email;
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "user",fetch = FetchType.LAZY)
     private Carts cart;
 
     public Users() {

@@ -1,5 +1,6 @@
 package com.example.ecommerce.controllers;
 
+import com.example.ecommerce.controllers.client.BaseExtender;
 import com.example.ecommerce.forms.LoginForm;
 import com.example.ecommerce.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +15,13 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
-public class LoginController {
+public class LoginController extends BaseExtender {
     @Autowired
     private UserService userService;
 
     @GetMapping("login")
-    public String getLogin(Model model){
+    public String getLogin(Model model, HttpSession session){
+
         model.addAttribute("loginForm", new LoginForm());
         return "login";
     }
@@ -29,13 +31,15 @@ public class LoginController {
             return "login";
         }
         if (userService.isCredentialValid(loginForm.getUsername(),loginForm.getPassword(),true)){
-            return "cms/category";
+            Long userId = userService.findUserIdByUsernameAndPassword(loginForm.getUsername(),loginForm.getPassword());
+            session.setAttribute("userId", userId);
+            return "cms/home";
         }
         else if (userService.isCredentialValid(loginForm.getUsername(),loginForm.getPassword(),false)){
+            Long userId = userService.findUserIdByUsernameAndPassword(loginForm.getUsername(),loginForm.getPassword());
+            session.setAttribute("userId", userId);
             return "index";
         }
-        Long userId = userService.findIdByUsernameAndPassword(loginForm.getUsername(),loginForm.getPassword());
-        session.setAttribute("userId", userId);
         model.addAttribute("message", "Username or Password incorrect");
         return "login";
     }

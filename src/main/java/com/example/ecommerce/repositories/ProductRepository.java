@@ -1,7 +1,6 @@
 package com.example.ecommerce.repositories;
 
-import com.example.ecommerce.entitys.ProductAttributeValues;
-import com.example.ecommerce.entitys.Products;
+import com.example.ecommerce.entities.Products;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

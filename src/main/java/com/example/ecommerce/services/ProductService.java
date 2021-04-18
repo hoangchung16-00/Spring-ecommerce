@@ -1,9 +1,7 @@
 package com.example.ecommerce.services;
 
-import com.example.ecommerce.entitys.ProductAttributeValues;
-import com.example.ecommerce.entitys.Products;
-import com.example.ecommerce.entitys.Subcategories;
-import com.example.ecommerce.repositories.ProductAttributeValueRepository;
+import com.example.ecommerce.entities.Products;
+import com.example.ecommerce.entities.Subcategories;
 import com.example.ecommerce.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -16,8 +14,6 @@ import java.util.List;
 public class ProductService {
     @Autowired
     private ProductRepository productRepository;
-    @Autowired
-    private ProductAttributeValueRepository productAttributeValueRepository;
     @Transactional
     public List<Products> findAll(){
         return productRepository.findAll();
@@ -58,21 +54,5 @@ public class ProductService {
     public int getTotalProductBySubCategorySlug(String slug){
         return productRepository.getTotalProductBySubCategorySlug(slug);
     }
-    @Transactional
-    public List<ProductAttributeValues> getProductAttributeSizeByProductId(Long id) {
-        return productAttributeValueRepository.getProductAttributeSizeByProductId(id);
-    }
-//    @Transactional
-//    public List<ProductAttributeValues> getProductAttributeColorByProductId(Long id){
-//        return productAttributeValueRepository.getProductAttributeColorByProductId(id);
-//    }
-//    @Transactional
-//    public int getSumQuantity(Long id){
-//        return productAttributeValueRepository.getSumQuantity(id);
-//    }
-//    @Transactional
-//    public int getSumProductValueBySize(Long id, Long valueid){
-//        return productAttributeValueRepository.getSumProductValueBySize(id, valueid);
-//    }
 }
 

@@ -1,4 +1,4 @@
-package com.example.ecommerce.entitys;
+package com.example.ecommerce.entities;
 
 import javax.persistence.*;
 import java.util.List;

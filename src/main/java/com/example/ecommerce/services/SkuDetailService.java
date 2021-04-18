@@ -1,12 +1,9 @@
 package com.example.ecommerce.services;
 
-import com.example.ecommerce.entitys.CartItems;
-import com.example.ecommerce.entitys.Products;
-import com.example.ecommerce.entitys.SkuDetails;
-import com.example.ecommerce.entitys.Skus;
+import com.example.ecommerce.entities.Products;
+import com.example.ecommerce.entities.SkuDetails;
 import com.example.ecommerce.model.ProductDetail;
 import com.example.ecommerce.repositories.SkuDetailRepository;
-import com.example.ecommerce.repositories.SkuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,15 +15,15 @@ import java.util.List;
 public class SkuDetailService {
     @Autowired
     private SkuDetailRepository skuDetailRepository;
-
-
+    @Autowired
+    private ProductAttributeValueService productAttributeValueService;
     @Transactional
-    public List<ProductDetail> getProductDetails(Long productId,List<SkuDetails> skuDetails){
-        List<ProductDetail> productDetails = new ArrayList<ProductDetail>();
+    public List<ProductDetail> getProductDetails(Long productId, List<SkuDetails> skuDetails){
+        List<ProductDetail> productDetails = new ArrayList<>();
         for ( SkuDetails skuDetail : skuDetails) {
             productDetails.add(new ProductDetail(skuDetail.getId(),skuDetail.getSkucode(),productId,
-                    getSkuSize(skuDetail.getId(),productId).getProductAttributeValue().getValue(),
-                    getSkuColor(skuDetail.getId(),productId).getProductAttributeValue().getValue(),
+                    productAttributeValueService.getSkuSize(skuDetail.getId(),productId).getValue(),
+                    productAttributeValueService.getSkuColor(skuDetail.getId(),productId).getValue(),
                     skuDetail.getImage(),skuDetail.getPrice(),skuDetail.getQuantity()));
         }
         return productDetails;
@@ -36,19 +33,40 @@ public class SkuDetailService {
         return skuDetailRepository.getSkuDetailsByProductId(productId);
     }
     @Transactional
-    public Skus getSkuSize(Long skuDetailId,Long productId){
-        return skuDetailRepository.getSkuSize(skuDetailId,"size",productId);
-    }
-    @Transactional
-    public Skus getSkuColor(Long skuDetailId,Long productId){
-        return skuDetailRepository.getSkuColor(skuDetailId,"color",productId);
-    }
-    @Transactional
     public void addSkuDetail(int quantity, String skucode, double price, String image, Products product){
         skuDetailRepository.save(new SkuDetails(quantity,skucode,price,image,product));
     }
     @Transactional
     public SkuDetails findBySkuCode(String skuCode){
         return skuDetailRepository.findSkuDetailsBySkucode(skuCode);
+    }
+
+    @Transactional
+    public SkuDetails getSkuDetailByProductId(Long productId, Long sizeId, Long colorId){
+        return skuDetailRepository.getSkuDetailByProductId(productId,sizeId,colorId);
+    }
+    @Transactional
+    public List<SkuDetails> findSkuDetailsByProductAndPAV(Long productId,Long PAVId){
+        return skuDetailRepository.findSkuDetailsByProductAndPAV(productId,PAVId);
+    }
+    @Transactional
+    public Boolean checkSkuDetail(List<SkuDetails> sizes,List<SkuDetails> colors){
+        for(SkuDetails size : sizes){
+            for(SkuDetails color : colors){
+                if(size.getId()==color.getId())
+                    return true;
+            }
+        }
+        return false;
+    }
+    @Transactional
+    public SkuDetails getSkuDetailByColorAndSize(List<SkuDetails> sizes,List<SkuDetails> colors){
+        for(SkuDetails size : sizes){
+            for(SkuDetails color : colors){
+                if(size.getId()==color.getId())
+                    return size;
+            }
+        }
+        return null;
     }
 }

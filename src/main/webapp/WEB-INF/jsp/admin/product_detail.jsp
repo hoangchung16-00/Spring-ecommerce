@@ -44,13 +44,15 @@
                 </c:forEach>
                 </tbody>
             </table>
-            <div class="pagnition-container">
-                <ul class="pagination">
-                    <li><a href="#">Previous</a></li>
+            <div class="pagination_rounded">
+                <ul>
+                    <li> <a href="#" class="prev"> <i class="fa fa-angle-left" aria-hidden="true"></i> Prev </a> </li>
                     <c:forEach begin="1" end="${pageSize}" varStatus="index">
-                        <li><a href="/cms/product?page=${index.index}">${index.index}</a></li>
+                                <li><a href="/cms/1 ?page=${index.index}">${index.index}</a></li>
                     </c:forEach>
-                    <li><a href="#">Next</a></li>
+                    <li class="hidden-xs"><a href="#">...</a> </li>
+                    <li><a href="#">6</a></li>
+                    <li><a href="#" class="next"> Next <i class="fa fa-angle-right" aria-hidden="true"></i></a> </li>
                 </ul>
             </div>
         </div>

@@ -1,8 +1,8 @@
 package com.example.ecommerce.services;
 
-import com.example.ecommerce.entitys.CartItems;
-import com.example.ecommerce.entitys.Carts;
-import com.example.ecommerce.entitys.SkuDetails;
+import com.example.ecommerce.entities.CartItems;
+import com.example.ecommerce.entities.Carts;
+import com.example.ecommerce.entities.SkuDetails;
 import com.example.ecommerce.repositories.CartItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

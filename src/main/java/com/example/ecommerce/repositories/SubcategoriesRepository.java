@@ -1,7 +1,6 @@
 package com.example.ecommerce.repositories;
 
-import com.example.ecommerce.entitys.Categories;
-import com.example.ecommerce.entitys.Subcategories;
+import com.example.ecommerce.entities.Subcategories;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

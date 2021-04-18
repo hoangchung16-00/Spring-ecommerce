@@ -66,6 +66,7 @@ a:focus {
   text-decoration: none;
 }
 
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
 }
@@ -1868,6 +1869,7 @@ img {
   margin-right: 10px;
   width: 30px;
 }
+
 #aa-product-category .aa-sidebar .aa-sidebar-widget .aa-color-tag .aa-color-red {
   background-color: #FF0000;
 }
@@ -3429,6 +3431,42 @@ img {
   letter-spacing: 1px;
   margin-bottom: 0;
 }
+.colors
+  button{
+    display: inline-block;
+    height: 20px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    width: 30px;
+  }
+  .colors-red{
+    border: 0px;
+    background-color: #FF0000;}
+  .colors-green {
+    border: 0px;
+    background-color: #008000;
+  }
+  .colors-yellow {
+    border: 0px;
+    background-color: #ffff00;
+  }
+  .colors-pink {
+    border: 0px;
+    background-color: #ffc0cb;
+  }
+  .colors-blue{
+    border: 0px;
+    background-color: #0000FF;
+  }
+  .colors-black {
+    background-color: #000;
+    border: 0px;
+  }
+  .colors-white {
+    background-color: #fff;
+    border: 0.05px solid #000000;
+  }
+
 #aa-footer .aa-footer-bottom .aa-footer-bottom-area > p a {
   color: #888;
   -webkit-transition: all 0.5s;

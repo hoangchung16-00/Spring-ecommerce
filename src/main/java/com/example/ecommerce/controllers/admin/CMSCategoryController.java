@@ -1,10 +1,8 @@
 package com.example.ecommerce.controllers.admin;
 
+import com.example.ecommerce.entities.Categories;
 import com.example.ecommerce.forms.AddCategoryForm;
 import com.example.ecommerce.forms.EditCategoryForm;
-import com.example.ecommerce.entitys.Categories;
-import com.example.ecommerce.services.CategoriesService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;

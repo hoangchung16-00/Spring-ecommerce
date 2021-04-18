@@ -1,8 +1,8 @@
 package com.example.ecommerce.services;
 
-import com.example.ecommerce.entitys.Categories;
-import com.example.ecommerce.entitys.Products;
-import com.example.ecommerce.entitys.Subcategories;
+import com.example.ecommerce.entities.Categories;
+import com.example.ecommerce.entities.Products;
+import com.example.ecommerce.entities.Subcategories;
 import com.example.ecommerce.forms.EditSubCategoryForm;
 import com.example.ecommerce.repositories.CategoriesRepository;
 import com.example.ecommerce.repositories.SubcategoriesRepository;

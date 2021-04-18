@@ -1,6 +1,6 @@
 package com.example.ecommerce.controllers.admin;
 
-import com.example.ecommerce.entitys.Products;
+import com.example.ecommerce.entities.Products;
 import com.example.ecommerce.forms.AddProductForm;
 import com.example.ecommerce.forms.EditProductForm;
 import org.springframework.data.domain.PageRequest;
@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.io.IOException;

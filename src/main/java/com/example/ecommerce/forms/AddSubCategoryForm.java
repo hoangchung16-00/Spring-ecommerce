@@ -1,7 +1,5 @@
 package com.example.ecommerce.forms;
 
-import com.example.ecommerce.entitys.Categories;
-
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 

@@ -1,4 +1,4 @@
-package com.example.ecommerce.entitys;
+package com.example.ecommerce.entities;
 
 import javax.persistence.*;
 import java.util.List;
@@ -10,7 +10,7 @@ public class ProductAttributes {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @OneToMany(mappedBy = "productAttribute",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "productAttribute",fetch = FetchType.LAZY)
     private List<ProductAttributeValues> productAttributeValues;
     @ManyToOne
     @JoinColumn(name = "productid")

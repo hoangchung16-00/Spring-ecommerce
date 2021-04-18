@@ -1,6 +1,5 @@
 package com.example.ecommerce.controllers.client;
 
-import com.example.ecommerce.entitys.ProductAttributes;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Controller;
@@ -13,24 +12,24 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class AjaxController extends BaseExtender{
     @GetMapping("/chooseSize")
-    public @ResponseBody String getSizeAttribute(@RequestParam("value") String sizeValue, HttpSession session){
-        session.setAttribute("size",sizeValue);
+    public @ResponseBody String getSizeAttribute(@RequestParam("attributeId") Long sizeId, HttpSession session){
+        session.setAttribute("size",sizeId);
         ObjectMapper mapper = new ObjectMapper();
         String ajaxResponse = "";
         try {
-            ajaxResponse = mapper.writeValueAsString(sizeValue);
+            ajaxResponse = mapper.writeValueAsString(sizeId);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
         return ajaxResponse;
     }
     @GetMapping("/chooseColor")
-    public @ResponseBody String getColorAttribute(@RequestParam("value") String colorValue, HttpSession session){
-        session.setAttribute("color",colorValue);
+    public @ResponseBody String getColorAttribute(@RequestParam("attributeId") Long colorId, HttpSession session){
+        session.setAttribute("color",colorId);
         ObjectMapper mapper = new ObjectMapper();
         String ajaxResponse = "";
         try {
-            ajaxResponse = mapper.writeValueAsString(colorValue);
+            ajaxResponse = mapper.writeValueAsString(colorId);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

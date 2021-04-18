@@ -1,8 +1,6 @@
 package com.example.ecommerce.controllers.admin;
 
 import com.example.ecommerce.forms.AddProductDetailForm;
-import com.example.ecommerce.forms.EditProductForm;
-import com.example.ecommerce.repositories.ProductAttributeValueRepository;
 import com.example.ecommerce.services.ProductAttributeValueService;
 import com.example.ecommerce.services.ProductService;
 import com.example.ecommerce.services.SkuDetailService;
@@ -40,7 +38,6 @@ public class ProductDetailController {
     public String getAddSkuDetail(final Model model,@RequestParam(name = "productId",required = false) Long productId){
         model.addAttribute("sizes",productAttributeValueService.getSkuSizesByProductId(productId));
         model.addAttribute("colors",productAttributeValueService.getSkuColorsByProductId(productId));
-
         model.addAttribute("addProductDetailForm", new AddProductDetailForm());
         model.addAttribute("productId",productId);
         return "cms/addskudetail";
@@ -55,7 +52,11 @@ public class ProductDetailController {
         if(bindingResult.hasErrors()){
             return "cms/addskudetail";
         }
-        if(skusService.getColorByProductId(productId,addProductDetailForm.getColorId())!=null&&skusService.getSizeByProductId(productId,addProductDetailForm.getSizeId())!=null){
+        if(productAttributeValueService.getColorByProductId(productId,addProductDetailForm.getColorId())!=null
+                &&productAttributeValueService.getSizeByProductId(productId,addProductDetailForm.getSizeId())!=null
+                &&skuDetailService.checkSkuDetail(skuDetailService.findSkuDetailsByProductAndPAV(productId,productAttributeValueService.getSizeByProductId(productId,addProductDetailForm.getSizeId()).getId()),
+                skuDetailService.findSkuDetailsByProductAndPAV(productId,productAttributeValueService.getColorByProductId(productId,addProductDetailForm.getColorId()).getId()))
+                ){
             return "cms/addskudetail";
         } else {
             String filename = addProductDetailForm.getSkuCode()+imageSkuDetail.getOriginalFilename();

@@ -68,7 +68,7 @@
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 
-
+    <link href="/client/scss/modules/_sections.scss" rel="stylesheet" type="text/css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -117,13 +117,13 @@
 <script src="/client/js/custom.js"></script>
 <script type="text/javascript">
     function chooseSize(i) {
-        var value=i;
+        var attributeId=i;
         $.ajax({
             type:"GET",
             contentType:"application/json",
             url:"/chooseSize",
             data:{
-                value : value
+                attributeId : attributeId
             },
             timeout:100000,
             success:function (data) {
@@ -135,13 +135,13 @@
         });
     }
     function chooseColor(i) {
-        var value=i;
+        var attributeId=i;
         $.ajax({
             type:"GET",
             contentType:"application/json",
             url:"/chooseColor",
             data:{
-                value : value
+                attributeId : attributeId
             },
             timeout:100000,
             success:function (data) {

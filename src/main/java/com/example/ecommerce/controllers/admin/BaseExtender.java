@@ -1,17 +1,12 @@
 package com.example.ecommerce.controllers.admin;
 
-import com.example.ecommerce.entitys.Categories;
-import com.example.ecommerce.entitys.ProductAttributeValues;
-import com.example.ecommerce.entitys.Products;
-import com.example.ecommerce.entitys.Subcategories;
+import com.example.ecommerce.entities.Categories;
+import com.example.ecommerce.entities.Products;
+import com.example.ecommerce.entities.Subcategories;
 import com.example.ecommerce.services.CategoriesService;
-import com.example.ecommerce.services.ProductAttributeValueService;
 import com.example.ecommerce.services.ProductService;
 import com.example.ecommerce.services.SubcategoriesService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import java.util.List;

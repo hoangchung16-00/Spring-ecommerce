@@ -1,4 +1,4 @@
-package com.example.ecommerce.entitys;
+package com.example.ecommerce.entities;
 
 import javax.persistence.*;
 import java.util.List;
@@ -10,7 +10,7 @@ public class Carts {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Double total;
-    @OneToMany(mappedBy = "cart",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "cart",fetch = FetchType.LAZY)
     private List<CartItems> cartItems;
     @OneToOne
     @JoinColumn(name = "userid")

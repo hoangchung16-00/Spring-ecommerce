@@ -71,9 +71,9 @@
                         <!-- logo  -->
                         <div class="aa-logo">
                             <!-- Text based logo -->
-                            <a href="index.html">
+                            <a href="/">
                                 <span class="fa fa-shopping-cart"></span>
-                                <p>daily<strong>Shop</strong> <span>Your Shopping Partner</span></p>
+                                <p>Blink<strong>Pack</strong> <span>Your Shopping Partner</span></p>
                             </a>
                             <!-- img based logo -->
                             <!-- <a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->
@@ -150,7 +150,7 @@
                 <div class="navbar-collapse collapse">
                     <!-- Left nav -->
                     <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="/">Home</a></li>
                         <c:forEach items="${categories}" var="category">
                             <li><a href="/products/${category.slug}/all">${category.name} <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
@@ -175,7 +175,7 @@
             <div class="aa-catg-head-banner-content">
                 <h2>T-Shirt</h2>
                 <ol class="breadcrumb">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="#">Product</a></li>
                     <li class="active">T-shirt</li>
                 </ol>

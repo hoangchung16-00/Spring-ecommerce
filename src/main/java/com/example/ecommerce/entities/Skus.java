@@ -1,6 +1,4 @@
-package com.example.ecommerce.entitys;
-
-import org.springframework.transaction.annotation.Transactional;
+package com.example.ecommerce.entities;
 
 import javax.persistence.*;
 
@@ -10,7 +8,7 @@ public class Skus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "productattributevalueid")
     private ProductAttributeValues productAttributeValue;
 

@@ -1,6 +1,6 @@
 package com.example.ecommerce.repositories;
 
-import com.example.ecommerce.entitys.ProductAttributes;
+import com.example.ecommerce.entities.ProductAttributes;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

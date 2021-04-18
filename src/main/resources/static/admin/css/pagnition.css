@@ -1,57 +1,66 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  outline: none;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-html,
-body {
-  display: grid;
-  height: 100%;
-  place-items: center;
-  text-align: center;
-  background: #dde1e7;
-}
-.pagnition-container {
-  background: #dde1e7;
-  padding: 5px;
-  border-radius: 1px;
-}
-.pagination {
-  display: flex;
-  list-style: none;
-}
-.pagination li {
-  flex: 1;
-  margin: 0px 5px;
-  background: #dde1e7;
-  border-radius: 2px;
-}
-.pagination li a {
-  font-size: 12px;
-  text-decoration: none;
-  color: #4d3252;
-  height: 20px;
-  width: 10px;
-  display: block;
-  line-height: 35px;
-}
-.pagination li:first-child a {
-  width: 60px;
-}
-.pagination li:last-child a {
-  width: 50px;
+.pagination_rounded,
+.pagination_square {
+  display: inline-block;
+  margin-left: 400px;
+  margin-top: 20px
 }
 
-.pagination li.active a {
-  font-size: 17px;
-  color: #6f6cde;
+.pagination_rounded ul {
+  margin: 0;
+  padding: 0;
+  list-style: none
 }
-.pagination li:first-child {
-  margin: 0 5px 0 0;
+
+.pagination_rounded li:first-child {
+  margin-left: 0px
 }
-.pagination li:last-child {
-  margin: 0 0 0 5px;
+
+.pagination_rounded ul li {
+  float: left;
+  margin-left: 20px
+}
+
+.pagination_rounded ul li a:hover {
+  background: #4285f4;
+  color: #fff;
+  border: 1px solid #4285f4
+}
+
+a:link {
+  text-decoration: none
+}
+
+.pagination_rounded .prev {
+  margin-left: 0px;
+  border-radius: 35px;
+  width: 90px;
+  height: 34px;
+  line-height: 34px
+}
+
+.pagination_rounded ul li a {
+  float: left;
+  color: #4285f4;
+  border-radius: 50%;
+  line-height: 30px;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  margin-bottom: 40px;
+  border: 1px solid #e0e0e0
+}
+
+.pagination_rounded .prev i {
+  margin-right: 10px
+}
+
+.pagination_rounded .next {
+  border-radius: 35px;
+  width: 90px;
+  height: 34px;
+  line-height: 34px
+}
+
+.visible-xs {
+  display: none !important
 }
