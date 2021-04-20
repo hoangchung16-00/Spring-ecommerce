@@ -8,10 +8,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class CMSHomeController {
     @GetMapping("cms/home")
-    public String getCMSHome(HttpSession session){
-        if(session.getAttribute("userId")==null){
-            return "redirect:/login";
-        }
+    public String getCMSHome(){
         return "cms/home";
     }
 }

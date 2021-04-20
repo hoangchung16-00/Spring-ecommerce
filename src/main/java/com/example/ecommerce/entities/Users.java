@@ -13,19 +13,32 @@ public class Users {
     private String name;
     private boolean isadmin;
     private String email;
+    private String role;
     @OneToOne(mappedBy = "user",fetch = FetchType.LAZY)
     private Carts cart;
-
     public Users() {
     }
 
-    public Users(String username, String password, String name, boolean isadmin, String email, Carts cart) {
+    public Users(String username, String password, String name, boolean isadmin, String email, String role, Carts cart) {
         this.username = username;
         this.password = password;
         this.name = name;
         this.isadmin = isadmin;
         this.email = email;
+        this.role = role;
         this.cart = cart;
+    }
+
+    public boolean isIsadmin() {
+        return isadmin;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public Long getId() {

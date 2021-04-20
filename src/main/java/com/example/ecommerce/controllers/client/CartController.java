@@ -34,8 +34,8 @@ public class CartController extends BaseExtender {
              Long sizeId = (Long) session.getAttribute("size");
              Long colorId = (Long) session.getAttribute("color");
              Products product = productService.findById(id);
-            List<SkuDetails> sizes = skuDetailService.findSkuDetailsByProductAndPAV(id,sizeId);
-            List<SkuDetails> colors = skuDetailService.findSkuDetailsByProductAndPAV(id,colorId);
+             List<SkuDetails> sizes = skuDetailService.findSkuDetailsByProductAndPAV(id,sizeId);
+             List<SkuDetails> colors = skuDetailService.findSkuDetailsByProductAndPAV(id,colorId);
              cartItemsService.addToCart(skuDetailService.getSkuDetailByColorAndSize(sizes,colors),cartService.findById(3L),3,skuDetailService.getSkuDetailByColorAndSize(sizes,colors).getPrice()*3);
         }
         return "cart";
