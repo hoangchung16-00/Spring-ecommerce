@@ -15,13 +15,15 @@ import javax.validation.Valid;
 
 @Controller
 public class LoginController {
-    @Autowired
-    private UserService userService;
 
     @GetMapping("/login")
     public String getLogin(Model model){
-        model.addAttribute("loginForm", new LoginForm());
+        model.addAttribute("loginForm",new LoginForm());
         return "login";
+    }
+    @GetMapping("/404")
+    public String getErrorPage(){
+        return "404";
     }
 
 }

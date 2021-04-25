@@ -7,6 +7,10 @@
     <definition name="login"
                 template="/WEB-INF/jsp/login.jsp">
     </definition>
+    <!--404-->
+    <definition name="404"
+                template="/WEB-INF/jsp/404.jsp">
+    </definition>
     <!-- Base Define -->
     <definition name="client.definition"
                 template="/WEB-INF/jsp/layouts/client-layout.jsp">

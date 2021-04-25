@@ -1,5 +1,8 @@
 package com.example.ecommerce.entitys;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 
 @Entity

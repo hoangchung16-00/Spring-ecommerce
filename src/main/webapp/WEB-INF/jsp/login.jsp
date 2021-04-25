@@ -44,13 +44,13 @@
                                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                 </div>
                                 ${message}
-                                <form:form action="/login" method="post" modelAttribute="loginForm" class="user">
+                                <form:form action="/login" method="post" class="user" modelAttribute="loginForm">
 
                                     <div class="form-group">
                                         <input class="form-control form-control-user" type="text" name="username">
                                     </div>
                                     <div class="form-group">
-                                       <input class="form-control form-control-user type="password" name="password">
+                                       <input class="form-control form-control-user" type="password" name="password">
                                     </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox small">
